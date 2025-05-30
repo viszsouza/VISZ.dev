@@ -61,6 +61,7 @@ header{
     color: var(--branco);
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
+    font-size: 18px;
     border: none;
     border-radius: 5px;
     
@@ -143,6 +144,9 @@ header{
     font-family: "Montserrat", sans-serif;
     text-align: start;
     position: relative;
+    color: var(--vermelhoEscuro);
+    border-right: solid 3px var(--vermelhoEscuro);
+    padding-right: 40px;
 }
 
 .services-titulo-page h1{
@@ -150,6 +154,7 @@ header{
     font-size: 40px;
     text-align: start;
     text-transform: uppercase;
+    color: var(--vermelhoPadrao);
 }
 
 .services-titulo-page p{
@@ -167,8 +172,7 @@ header{
     font-weight: 400;
     font-size: 20px;
     text-align: start;
-    border-left: solid 3px var(--vermelhoEscuro);
-    padding-left: 40px;
+    color: var(--vermelhoEscuro);
 }
 
 .container-services{
@@ -290,4 +294,151 @@ header{
     background-color: transparent;
     border: solid 3px var(--vermelhoEscuro);
     color: var(--vermelhoEscuro);
+}
+
+/* Depoimentos */
+.depoimentos{
+    background-color: var(--preto);
+    padding: 40px 20px;
+}
+
+.depoimentos-titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.depoimentos-titulo-page{
+    font-family: "Montserrat", sans-serif;
+    text-align: start;
+    position: relative;
+    color: var(--bege);
+    border-right: solid 3px var(--vermelhoPadrao);
+    padding-right: 40px;
+}
+
+.depoimentos-titulo-page h1{
+    font-weight: 900;
+    font-size: 40px;
+    text-align: start;
+    text-transform: uppercase;
+    color: var(--vermelhoPadrao);
+}
+
+.depoimentos-titulo-page p{
+    font-weight: 500;
+    font-size: 20px;
+    text-align: start;
+    color: var(--bege);
+}
+
+.depoimentos-titulo-text{
+    width: 50%;
+}
+
+.depoimentos-titulo-text p{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: start;
+    color: var(--bege);
+}
+
+.container-depoimentos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px
+}
+
+.depoimento-img img{
+    width: 450px;
+    transition: 300ms;
+}
+
+.depoimento-img img:hover {
+    transform: translateY(-10px);
+}
+
+.depoimento-img img:not(:hover) {
+    transform: translateY(10px);
+}
+
+/* CTA */
+.cta{
+    background-color: var(--vermelhoEscuro);
+    padding: 40px 20px;
+}
+
+.container-cta{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+    color: var(--branco);
+}
+
+.container-cta-text{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    margin-left: 50px;
+    gap: 30px;
+}
+
+.container-cta h1{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+    text-align: start;
+    width: 800px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 15px var(--preto);
+}
+
+.container-cta h1 span{
+    color: var(--vermelhoPadrao);
+}
+
+.container-cta p{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    text-align: start;
+    width: 500px;
+    border-left: solid 3px var(--vermelhoPadrao);
+    padding-left: 30px;
+}
+
+.container-cta-button button{
+    padding: 10px 20px;
+    background-color: var(--vermelhoPadrao);
+    color: var(--branco);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    margin-left: 50px;
+    transition: 300ms;
+}
+
+.container-cta-button img{
+    width: 30px;
+}
+
+.container-cta-button button:hover{
+    transform: scale(1.05);
+    background-color: transparent;
+    border: solid 3px var(--vermelhoPadrao);
 }
