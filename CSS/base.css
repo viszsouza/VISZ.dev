@@ -39,6 +39,21 @@ img {
     -webkit-user-drag: none;
 }
 
+/* Barra de rolagem */
+body::-webkit-scrollbar {
+  width: 5px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--preto);        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--vermelhoPadrao);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: none;  /* creates padding around scroll thumb */
+}
+
 /* Animações */
 
 .hidden{
@@ -147,6 +162,10 @@ nav{
 
 .roxo:hover{
     transform: scale(1.05);
+    color: var(--vermelhoPadrao);
+}
+
+.page{
     color: var(--vermelhoPadrao);
 }
 

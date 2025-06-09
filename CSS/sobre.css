@@ -1,0 +1,131 @@
+@import url("base.css");
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+    background-color: var(--preto);
+    gap: 100px;
+    flex-wrap: wrap;
+}
+
+.container-imagem img{
+    width: 500px;
+    height: 600px;
+    object-fit: cover;
+}
+
+.container-textos{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.container-inicio-text{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.container-inicio-text h1{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+    text-align: start;
+    width: 400px;
+    color: var(--vermelhoPadrao);
+    text-transform: uppercase;
+    text-shadow: 1px 1px 15px var(--preto);
+}
+
+.container-inicio-text p{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    text-align: start;
+    width: 400px;
+    color: var(--branco);
+    border-left: solid 3px var(--vermelhoPadrao);
+    padding-left: 30px;
+}
+
+.container-inicio-button button{
+    padding: 10px 20px;
+    background-color: var(--vermelhoPadrao);
+    color: var(--branco);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    transition: 300ms;
+}
+
+.container-inicio-button img{
+    width: 30px;
+}
+
+.container-inicio-button button:hover{
+    transform: scale(1.05);
+    background-color: transparent;
+    border: solid 3px var(--vermelhoPadrao);
+}
+
+/* Diferenciais */
+.diferenciais{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 40px 20px;
+    background-color: var(--preto);
+    gap: 40px;
+}
+
+.diferenciais-title{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    text-align: start;
+    color: var(--vermelhoPadrao);
+    text-shadow: 1px 1px 15px var(--preto);
+}
+
+.container-diferenciais{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.diferenciais-item{
+    background: linear-gradient(90deg,rgba(255, 49, 49, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    width: 300px;
+    height: 100px;
+    padding: 20px;
+    border-radius: 0px 0px 0px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.diferenciais-item p{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--branco);
+    width: 200px;
+}
