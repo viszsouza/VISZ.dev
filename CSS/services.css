@@ -1,0 +1,134 @@
+@import url("base.css");
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+
+    padding: 40px 20px;
+    background-color: var(--preto);
+}
+
+/* Textos */
+
+.container-inicio-text{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 30px;
+
+    width: 100%;
+    max-width: 500px;
+}
+
+.container-inicio-text h1{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    text-align: start;
+    color: var(--vermelhoPadrao);
+    text-shadow: 1px 1px 15px var(--preto);
+}
+
+.container-inicio-text p{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    text-align: start;
+    color: var(--branco);
+    border-left: solid 3px var(--vermelhoPadrao);
+    padding-left: 30px;
+}
+
+/* Serviço */
+.container-servico{
+    border: 3px solid var(--vermelhoPadrao);
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container-servico h1{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    text-align: start;
+    color: var(--vermelhoPadrao);
+    text-shadow: 1px 1px 15px var(--preto);
+}
+
+.container-servico p{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    text-align: start;
+    color: var(--branco);
+    border-left: solid 3px var(--vermelhoPadrao);
+    padding-left: 30px;
+    height: 100px;
+
+}
+
+/* Vantegens */
+.vantagens{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.vantagem-item{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+}
+
+.vantagem-item img{
+    width: 40px;
+}
+
+.vantagem-item p{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: start;
+    color: var(--vermelhoPadrao);
+    border: none;
+    padding: 0px;
+    height: 100%;
+}
+
+.container-inicio-button button{
+    padding: 15px 20px;
+    background-color: var(--vermelhoPadrao);
+    color: var(--branco);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    transition: 300ms;
+}
+
+.container-inicio-button img{
+    width: 30px;
+}
+
+.container-inicio-button button:hover{
+    transform: scale(1.05);
+    background-color: transparent;
+    border: solid 3px var(--vermelhoPadrao);
+}

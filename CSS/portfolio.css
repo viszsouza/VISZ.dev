@@ -1,0 +1,103 @@
+@import url("base.css");
+
+.portfolio-titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 20px;
+    background-color: var(--preto);
+}
+
+.portfolio-titulo-page{
+    font-family: "Montserrat", sans-serif;
+    text-align: start;
+    position: relative;
+    border-right: solid 3px var(--vermelhoPadrao);
+    padding-right: 40px;
+}
+
+.portfolio-titulo-page h1{
+    font-weight: 900;
+    font-size: 40px;
+    text-align: start;
+    text-transform: uppercase;
+    color: var(--vermelhoPadrao);
+}
+
+.portfolio-titulo-page p{
+    font-weight: 500;
+    font-size: 20px;
+    text-align: start;
+    color: var(--branco);
+}
+
+.portfolio-titulo-text{
+    width: 50%;
+}
+
+.portfolio-titulo-text p{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: start;
+    color: var(--branco);
+}
+
+/* Portfólio */
+.portfolio {
+    background-color: var(--preto);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.container-portfolio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+
+    flex-wrap: wrap;
+}
+
+.portfolio-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.portfolio-item img {
+    width: 100%;
+    display: block;
+    transition: 300ms;
+}
+
+.portfolio-item p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    color: var(--branco);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.portfolio-item:hover p {
+    opacity: 1;
+}
+
+.portfolio-item:hover img{
+    opacity: 0.5;
+}
