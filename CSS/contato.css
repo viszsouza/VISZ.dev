@@ -1,1 +1,154 @@
 @import url("base.css");
+
+body {
+    background-color: var(--preto);
+}
+
+.contato {
+    background-color: var(--vermelhoPadrao);
+    margin: 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px;
+}
+
+.part1-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.part1-contato h1 {
+    font-family: "Montserrat", sans-serif;
+    color: var(--branco);
+    font-weight: 900;
+    font-size: 24px;
+}
+
+.part1-contato p {
+    font-family: "Montserrat", sans-serif;
+    color: var(--branco);
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.part1-contato button {
+    background-color: var(--preto);
+    width: 100%;
+    padding: 15px 20px;
+    color: var(--branco);
+    border: none;
+    border-radius: 15px;
+
+    font-family: "Montserrat", sans-serif;
+    color: var(--branco);
+    font-weight: 300;
+    font-size: 18px;
+
+    transition: 300ms;
+}
+
+.part1-contato button:hover{
+    background-color: var(--vermelhoEscuro);
+}
+
+.part2-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding-left: 40px;
+    border-left: solid 3px var(--branco);
+}
+
+.part2-contato input {
+    border: solid 3px var(--branco);
+    padding: 20px;
+    border-radius: 15px;
+    transition: 300ms;
+    color: var(--branco);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.part2-contato input::placeholder {
+    color: var(--branco);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.part2-contato input:focus{
+    background-color: var(--vermelhoEscuro);
+outline: none; /* Remove a borda padrão do navegador ao focar */
+}
+
+.selecione{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label{
+    color: var(--branco);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.part2-contato select {
+    border: solid 3px var(--branco);
+    padding: 20px;
+    border-radius: 15px;
+    color: var(--branco);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    transition: 300ms;
+
+    appearance: none;
+    /* Remove a seta padrão */
+    -webkit-appearance: none;
+    /* Para navegadores Safari/Chrome */
+    -moz-appearance: none;
+    /* Para Firefox */
+}
+
+.part2-contato select:focus{
+    background-color: var(--vermelhoEscuro);
+    outline: none; /* Remove a borda padrão do navegador ao focar */
+}
+
+.part2-contato option {
+    color: var(--branco);
+    background-color: var(--preto);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.part2-contato button {
+    background-color: var(--preto);
+    width: 100%;
+    padding: 15px 20px;
+    color: var(--branco);
+    border: none;
+    border-radius: 15px;
+
+    font-family: "Montserrat", sans-serif;
+    color: var(--branco);
+    font-weight: 300;
+    font-size: 18px;
+    margin-top: 10px;
+
+    transition: 300ms;
+}
+
+.part2-contato button:hover{
+    background-color: var(--vermelhoEscuro);
+}
