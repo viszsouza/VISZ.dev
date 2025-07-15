@@ -500,4 +500,34 @@ header{
     .sobre-img img{
         width: 100%;
     }
+
+    .container-inicio h1{
+        font-size: 30px;
+        width: 100%;
+    }
+
+    .container-cta h1{
+        font-size: 30px;
+        width: 100%;
+    }
+
+    .container-inicio-text{
+    margin-left: 20px;
+    }
+
+    .container-inicio-button button{
+        margin-left: 20px;
+    }
+
+    .container-cta-text{
+    margin-left: 20px;
+    }
+
+    .container-cta-button button{
+        margin-left: 20px;
+    }
+
+    .depoimento-img img{
+        width: 100%;
+    }
 }
