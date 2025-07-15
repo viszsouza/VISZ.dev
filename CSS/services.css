@@ -72,7 +72,6 @@ main{
     border-left: solid 3px var(--vermelhoPadrao);
     padding-left: 30px;
     height: 100px;
-
 }
 
 /* Vantegens */
@@ -131,4 +130,10 @@ main{
     transform: scale(1.05);
     background-color: transparent;
     border: solid 3px var(--vermelhoPadrao);
+}
+
+@media (max-width: 750px) {
+    .container-servico p{
+        height: 100%;
+    }
 }

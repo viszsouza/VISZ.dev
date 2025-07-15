@@ -52,7 +52,7 @@ body {
     transition: 300ms;
 }
 
-.part1-contato button:hover{
+.part1-contato button:hover {
     background-color: var(--vermelhoEscuro);
 }
 
@@ -62,7 +62,7 @@ body {
     gap: 10px;
     width: 100%;
     padding-left: 40px;
-    border-left: solid 3px var(--branco);
+    border-left: solid 3px var(--preto);
 }
 
 .part2-contato input {
@@ -83,18 +83,19 @@ body {
     font-size: 18px;
 }
 
-.part2-contato input:focus{
+.part2-contato input:focus {
     background-color: var(--vermelhoEscuro);
-outline: none; /* Remove a borda padrão do navegador ao focar */
+    outline: none;
+    /* Remove a borda padrão do navegador ao focar */
 }
 
-.selecione{
+.selecione {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-label{
+label {
     color: var(--branco);
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
@@ -119,9 +120,10 @@ label{
     /* Para Firefox */
 }
 
-.part2-contato select:focus{
+.part2-contato select:focus {
     background-color: var(--vermelhoEscuro);
-    outline: none; /* Remove a borda padrão do navegador ao focar */
+    outline: none;
+    /* Remove a borda padrão do navegador ao focar */
 }
 
 .part2-contato option {
@@ -149,6 +151,42 @@ label{
     transition: 300ms;
 }
 
-.part2-contato button:hover{
+.part2-contato button:hover {
     background-color: var(--vermelhoEscuro);
+}
+
+/* Animação Loader */
+.loader {
+    z-index: 99;
+    display: none;
+
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    border: 4px solid var(--branco);
+    border-top: 4px solid #333;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 750px) {
+    .contato {
+        flex-direction: column;
+    }
+
+    .part2-contato {
+        padding-left: 0px;
+        border-left: none;
+
+        padding-top: 40px;
+        border-top: solid 3px var(--preto);
+    }
 }

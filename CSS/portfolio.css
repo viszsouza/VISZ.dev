@@ -13,8 +13,6 @@
     font-family: "Montserrat", sans-serif;
     text-align: start;
     position: relative;
-    border-right: solid 3px var(--vermelhoPadrao);
-    padding-right: 40px;
 }
 
 .portfolio-titulo-page h1{
@@ -42,6 +40,8 @@
     font-size: 20px;
     text-align: start;
     color: var(--branco);
+    border-left: solid 3px var(--vermelhoPadrao);
+    padding-left: 40px;
 }
 
 /* Portfólio */
@@ -100,4 +100,22 @@
 
 .portfolio-item:hover img{
     opacity: 0.5;
+}
+
+@media (max-width: 750px) {
+    .portfolio-titulo{
+        flex-direction: column;
+    }
+
+    .portfolio-titulo-text{
+    width: 70%;
+    }
+
+    .portfolio-titulo-text p{
+        border-left: none;
+        padding-left: 0px;
+
+        border-top: solid 3px var(--vermelhoPadrao);
+        padding-top: 40px;
+    }
 }

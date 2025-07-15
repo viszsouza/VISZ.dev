@@ -11,10 +11,21 @@ main{
     flex-wrap: wrap;
 }
 
+.container-imagem{
+    overflow: hidden;
+}
+
 .container-imagem img{
     width: 500px;
-    height: 600px;
+    max-height: 600px;
     object-fit: cover;
+    transition: 300ms;
+
+    justify-items: center;
+}
+
+.container-imagem img:hover{
+    transform: scale(1.1)
 }
 
 .container-textos{
@@ -128,4 +139,18 @@ main{
     font-size: 18px;
     color: var(--branco);
     width: 200px;
+}
+
+@media (max-width: 750px) {
+    .container-imagem img{
+        width: 100%;
+    }
+
+    .container-inicio-text h1{
+        width: 100%;
+    }
+
+    .container-inicio-text p{
+        width: 100%;
+    }
 }
