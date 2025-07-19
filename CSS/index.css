@@ -105,6 +105,15 @@ header{
     gap: 40px;
 }
 
+.sobre-img{
+    max-width: 500px;
+}
+
+.sobre-img img{
+    width: 100%;
+    filter: drop-shadow( 3px 2px 10px var(--preto));
+}
+
 .sobre-text{
     width: 40%;
     display: flex;
