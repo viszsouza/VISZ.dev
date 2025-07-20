@@ -8,11 +8,11 @@
     <link rel="shortcut icon" href="../IMG/MeuLogoQuadrado.png" type="image/x-icon">
 
     <!-- META TAG -->
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="VISZ.dev"/>
-    <meta property="og:image" content="https://visz-dev.vercel.app/IMG/ViniciusComputador.jpg"/>
-    <meta property="og:description" content="Desenvolvimento web moderno, com foco em resultados reais."/>
-    <meta property="og:site_name" content="VISZ.dev"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="VISZ.dev" />
+    <meta property="og:image" content="https://visz-dev.vercel.app/IMG/ViniciusComputador.jpg" />
+    <meta property="og:description" content="Desenvolvimento web moderno, com foco em resultados reais." />
+    <meta property="og:site_name" content="VISZ.dev" />
 
     <!-- Link's -->
     <link rel="stylesheet" href="../CSS/contato.css">
@@ -22,7 +22,8 @@
 
 <body>
     <div class="whatsapp">
-        <a href="" target="_blank"><img src="../IMG/whatsapp.png" alt="Logo Whatsapp"></a>
+        <a href="https://wa.me/5581985742601?text=Ol%C3%A1!%20Vi%20o%20site%20da%20VISZ.dev%20e%20quero%20saber%20mais%20sobre%20como%20funciona%20a%20cria%C3%A7%C3%A3o%20de%20sites."
+            target="_blank"><img src="../IMG/whatsapp.png" alt="Logo Whatsapp"></a>
     </div>
 
 
@@ -48,28 +49,28 @@
             <h1>Vamos conversar sobre o seu projeto?</h1>
             <p>Preencha o formulário ou nos chame direto no WhatsApp.</p>
 
-            <a href=""><button>Link para WhatsApp</button></a>
+            <a href="https://wa.me/5581985742601?text=Ol%C3%A1!%20Vi%20o%20site%20da%20VISZ.dev%20e%20quero%20saber%20mais%20sobre%20como%20funciona%20a%20cria%C3%A7%C3%A3o%20de%20sites."><button>Link para WhatsApp</button></a>
         </div>
 
-        <form action="" class="part2-contato">
-            <input type="text" placeholder="Nome:">
-            <input type="email" placeholder="E-mail:">
+        <form action="https://api.whatsapp.com/send" method="get" class="part2-contato" target="_blank">
+            <input type="text" name="text" id="nome" placeholder="Nome:" required>
+            <input type="email" name="email" id="email" placeholder="E-mail:" required>
 
-            <select name="select">
+            <select name="tipo_projeto" id="tipo_projeto" required>
                 <option value="" disabled selected hidden>Tipo de projeto:</option>
-                <option value="Site Institucional">Criação de Sites Profissionais</option>
-                <option value="Landing Page" selected>Landing Pages de Conversão</option>
-                <option value="E-commerce">Lojas Virtuais (E-commerce)</option>
-                <option value="Suporte">Manutenção e Suporte</option>
-                <option value="Identidade Visual">Identidade
-                    Visual</option>
+                <option value="Criação de Sites Profissionais">Criação de Sites Profissionais</option>
+                <option value="Landing Pages de Conversão" selected>Landing Pages de Conversão</option>
+                <option value="Lojas Virtuais (E-commerce)">Lojas Virtuais (E-commerce)</option>
+                <option value="Manutenção e Suporte">Manutenção e Suporte</option>
+                <option value="Identidade Visual">Identidade Visual</option>
             </select>
-            <input type="tel" placeholder="Telefone:">
 
-            <button id="button-contato">Falar com VISZ.dev</button>
+            <input type="tel" name="telefone" id="telefone" placeholder="Telefone:" required>
+
+            <button id="button-contato" type="submit">Falar com VISZ.dev</button>
         </form>
 
     </section>
-</body>
 
+</body>
 </html>
