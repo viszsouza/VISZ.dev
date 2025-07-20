@@ -106,12 +106,12 @@ label {
     border: solid 3px var(--branco);
     padding: 20px;
     border-radius: 15px;
-    color: var(--branco);
+    color: var(--preto);
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-size: 18px;
     transition: 300ms;
-
+    background-color: var(--branco);
     appearance: none;
     /* Remove a seta padrão */
     -webkit-appearance: none;
@@ -122,6 +122,7 @@ label {
 
 .part2-contato select:focus {
     background-color: var(--vermelhoEscuro);
+    color: var(--branco);
     outline: none;
     /* Remove a borda padrão do navegador ao focar */
 }
