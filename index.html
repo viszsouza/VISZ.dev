@@ -19,7 +19,7 @@
 <meta property="og:title" content="VISZ.dev — Seu site não deve apenas existir. Ele deve vender.">
 <meta property="og:description" content="Criamos sites modernos, rápidos e estratégicos para empresas que querem crescer no digital. Performance, SEO e design premium em cada projeto.">
 <meta property="og:url" content="https://visz.dev/">
-<meta property="og:image" content="https://visz.dev/assets/og-cover.jpg">
+<meta property="og:image" content="https://visz.dev/assets/LogoVISZ.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="pt_BR">
@@ -28,10 +28,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="VISZ.dev — Seu site não deve apenas existir. Ele deve vender.">
 <meta name="twitter:description" content="Sites, landing pages e sistemas web de alta performance. Design premium, SEO avançado e conversão real.">
-<meta name="twitter:image" content="https://visz.dev/assets/og-cover.jpg">
+<meta name="twitter:image" content="https://visz.dev/assets/LogoVISZ.png">
 
 <!-- ============ ÍCONES / MANIFEST ============ -->
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/LogoVISZ.png" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 
@@ -401,7 +401,7 @@
 
     <div class="grid grid--portfolio">
       <a href="#contato" class="portfolio-card reveal">
-        <img class="portfolio-card__media" src="assets/portfolio/Proventus.jpg" alt="Site institucional da Proventus Promoções, empresa de produção de eventos de Recife/PE" loading="lazy" width="960" height="768">
+        <img class="portfolio-card__media" src="assets/portfolio/proventus.jpg" alt="Site institucional da Proventus Promoções, empresa de produção de eventos de Recife/PE" loading="lazy" width="960" height="768">
         <div class="portfolio-card__overlay">
           <span class="portfolio-card__cat">Site Institucional</span>
           <h3>Proventus Promoções</h3>
@@ -409,7 +409,7 @@
         </div>
       </a>
       <a href="#contato" class="portfolio-card reveal">
-        <img class="portfolio-card__media" src="assets/portfolio/LPTA.jpg" alt="Site institucional da LPTA Engenharia, empresa de locação de plataformas aéreas" loading="lazy" width="960" height="768">
+        <img class="portfolio-card__media" src="assets/portfolio/lpta.jpg" alt="Site institucional da LPTA Engenharia, empresa de locação de plataformas aéreas" loading="lazy" width="960" height="768">
         <div class="portfolio-card__overlay">
           <span class="portfolio-card__cat">Site Institucional</span>
           <h3>LPTA Engenharia</h3>
@@ -461,39 +461,82 @@
     </div>
 
     <div class="testimonials reveal">
-      <div class="testimonials__track" id="testiTrack">
-        <blockquote class="testimonial">
-          <p>“Trocamos um site que só existia por um que passou a gerar orçamento toda semana. A diferença apareceu já no primeiro mês.”</p>
-          <footer>
-            <span class="testimonial__avatar" aria-hidden="true">MF</span>
-            <div>
-              <cite>Marcela Freitas</cite>
-              <span>Diretora, Studio MF Arquitetura</span>
+      <div class="testimonials__glow" aria-hidden="true"></div>
+
+      <button class="testimonials__arrow testimonials__arrow--prev" id="testiPrev" aria-label="Depoimento anterior">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="testimonials__frame">
+        <svg class="testimonials__quote-mark" viewBox="0 0 48 36" aria-hidden="true">
+          <path d="M0 36V20.7C0 8.7 7.6 1.3 19.4 0l1.7 5.4C13.6 7.5 9.6 12 9.6 18.4h9.7V36H0Zm27.6 0V20.7c0-12 7.6-19.4 19.4-20.7l1.7 5.4c-7.5 2.1-11.5 6.6-11.5 13v.3h9.7V36H27.6Z" fill="currentColor"/>
+        </svg>
+
+        <div class="testimonials__track" id="testiTrack">
+          <blockquote class="testimonial">
+            <div class="testimonial__rating" aria-label="Avaliação 5 de 5">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6 .7-4.5 4.2 1.2 6-5.3-3-5.3 3 1.2-6L1.4 7.8l6-.7L10 1.5Z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6 .7-4.5 4.2 1.2 6-5.3-3-5.3 3 1.2-6L1.4 7.8l6-.7L10 1.5Z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6 .7-4.5 4.2 1.2 6-5.3-3-5.3 3 1.2-6L1.4 7.8l6-.7L10 1.5Z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6 .7-4.5 4.2 1.2 6-5.3-3-5.3 3 1.2-6L1.4 7.8l6-.7L10 1.5Z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6 .7-4.5 4.2 1.2 6-5.3-3-5.3 3 1.2-6L1.4 7.8l6-.7L10 1.5Z"/></svg>
             </div>
-          </footer>
-        </blockquote>
-        <blockquote class="testimonial">
-          <p>“O processo foi transparente do início ao fim. Sabíamos exatamente em que etapa o projeto estava a cada semana.”</p>
-          <footer>
-            <span class="testimonial__avatar" aria-hidden="true">RC</span>
-            <div>
-              <cite>Rodrigo Costa</cite>
-              <span>Sócio, Costa Engenharia</span>
+            <p>Trocamos um site que só existia por um que passou a gerar orçamento toda semana. A diferença apareceu já no primeiro mês.</p>
+            <footer>
+              <span class="testimonial__avatar" aria-hidden="true">MF</span>
+              <div class="testimonial__id">
+                <cite>Marcela Freitas</cite>
+                <span>Diretora, Studio MF Arquitetura</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial">
+            <div class="testimonial__rating" aria-label="Avaliação 5 de 5">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6 .7-4.5 4.2 1.2 6-5.3-3-5.3 3 1.2-6L1.4 7.8l6-.7L10 1.5Z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6 .7-4.5 4.2 1.2 6-5.3-3-5.3 3 1.2-6L1.4 7.8l6-.7L10 1.5Z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6 .7-4.5 4.2 1.2 6-5.3-3-5.3 3 1.2-6L1.4 7.8l6-.7L10 1.5Z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6 .7-4.5 4.2 1.2 6-5.3-3-5.3 3 1.2-6L1.4 7.8l6-.7L10 1.5Z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6 .7-4.5 4.2 1.2 6-5.3-3-5.3 3 1.2-6L1.4 7.8l6-.7L10 1.5Z"/></svg>
             </div>
-          </footer>
-        </blockquote>
-        <blockquote class="testimonial">
-          <p>“Performance impecável. Nosso site carrega em menos de 2 segundos e isso mudou a taxa de conversão do tráfego pago.”</p>
-          <footer>
-            <span class="testimonial__avatar" aria-hidden="true">JL</span>
-            <div>
-              <cite>Juliana Lopes</cite>
-              <span>Head de Marketing, Nortte</span>
+            <p>O processo foi transparente do início ao fim. Sabíamos exatamente em que etapa o projeto estava a cada semana.</p>
+            <footer>
+              <span class="testimonial__avatar" aria-hidden="true">RC</span>
+              <div class="testimonial__id">
+                <cite>Rodrigo Costa</cite>
+                <span>Sócio, Costa Engenharia</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial">
+            <div class="testimonial__rating" aria-label="Avaliação 5 de 5">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6 .7-4.5 4.2 1.2 6-5.3-3-5.3 3 1.2-6L1.4 7.8l6-.7L10 1.5Z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6 .7-4.5 4.2 1.2 6-5.3-3-5.3 3 1.2-6L1.4 7.8l6-.7L10 1.5Z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6 .7-4.5 4.2 1.2 6-5.3-3-5.3 3 1.2-6L1.4 7.8l6-.7L10 1.5Z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6 .7-4.5 4.2 1.2 6-5.3-3-5.3 3 1.2-6L1.4 7.8l6-.7L10 1.5Z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6 .7-4.5 4.2 1.2 6-5.3-3-5.3 3 1.2-6L1.4 7.8l6-.7L10 1.5Z"/></svg>
             </div>
-          </footer>
-        </blockquote>
+            <p>Performance impecável. Nosso site carrega em menos de 2 segundos e isso mudou a taxa de conversão do tráfego pago.</p>
+            <footer>
+              <span class="testimonial__avatar" aria-hidden="true">JL</span>
+              <div class="testimonial__id">
+                <cite>Juliana Lopes</cite>
+                <span>Head de Marketing, Nortte</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+
+        <div class="testimonials__meta">
+          <span class="testimonials__count" id="testiCount">01 <i>/</i> 03</span>
+          <div class="testimonials__dots" id="testiDots" role="tablist" aria-label="Selecionar depoimento"></div>
+        </div>
       </div>
-      <div class="testimonials__dots" id="testiDots" role="tablist" aria-label="Selecionar depoimento"></div>
+
+      <button class="testimonials__arrow testimonials__arrow--next" id="testiNext" aria-label="Próximo depoimento">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
   </div>
 </section>

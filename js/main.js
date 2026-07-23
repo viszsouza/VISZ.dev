@@ -189,9 +189,18 @@
     let li = 0, ci = 0;
     let buffer = '';
  
+    // Em telas de tablet/celular a animação roda uma única vez e para no
+    // estado final; no desktop ela continua em loop como antes.
+    const isCompact = window.matchMedia('(max-width: 1080px)').matches;
+ 
     function typeStep() {
       if (li >= lines.length) {
-        // pausa e reinicia
+        if (isCompact) {
+          // finaliza a exibição sem o cursor piscando e não reinicia.
+          codeEl.innerHTML = buffer;
+          return;
+        }
+        // pausa e reinicia (apenas desktop)
         setTimeout(() => {
           codeEl.innerHTML = '';
           buffer = '';
@@ -230,9 +239,14 @@
   /* ---------------- Testimonials slider ---------------- */
   const track = document.getElementById('testiTrack');
   const dotsWrap = document.getElementById('testiDots');
+  const testiCount = document.getElementById('testiCount');
+  const testiPrev = document.getElementById('testiPrev');
+  const testiNext = document.getElementById('testiNext');
+ 
   if (track && dotsWrap) {
     const slides = track.children.length;
     let index = 0;
+    const pad = (n) => String(n).padStart(2, '0');
  
     for (let i = 0; i < slides; i++) {
       const dot = document.createElement('button');
@@ -247,11 +261,19 @@
       index = (i + slides) % slides;
       track.style.transform = `translateX(-${index * 100}%)`;
       [...dotsWrap.children].forEach((d, di) => d.classList.toggle('is-active', di === index));
+      if (testiCount) testiCount.innerHTML = `${pad(index + 1)} <i>/</i> ${pad(slides)}`;
     }
  
+    testiPrev?.addEventListener('click', () => { goTo(index - 1); resetTimer(); });
+    testiNext?.addEventListener('click', () => { goTo(index + 1); resetTimer(); });
+ 
     let timer = setInterval(() => goTo(index + 1), 6000);
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(index + 1), 6000);
+    }
     track.parentElement.addEventListener('mouseenter', () => clearInterval(timer));
-    track.parentElement.addEventListener('mouseleave', () => { timer = setInterval(() => goTo(index + 1), 6000); });
+    track.parentElement.addEventListener('mouseleave', resetTimer);
   }
  
   /* ---------------- Accordion FAQ ---------------- */
@@ -409,3 +431,4 @@
   });
  
 })();
+ 
