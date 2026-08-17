@@ -110,54 +110,130 @@
     statNumbers.forEach(el => statsIo.observe(el));
   }
  
-  /* ---------------- Partículas no hero ---------------- */
-  const canvas = document.getElementById('particles');
-  if (canvas && !reducedMotion) {
+  /* ---------------- Partículas — hero + todas as seções ---------------- */
+  function initCanvas(canvas, opts) {
+    if (!canvas || reducedMotion) return;
     const ctx = canvas.getContext('2d');
     let particles = [];
     let width, height, dpr;
- 
+    let rafId;
+
+    const cfg = Object.assign({
+      count: 90,
+      density: 14000,
+      minR: 0.6,
+      maxR: 2.2,
+      speed: 0.32,
+      minOpacity: 0.28,
+      maxOpacity: 0.72,
+      color: '250,0,0',
+      connect: true,
+      connectDist: 120,
+      connectOpacity: 0.18,
+    }, opts);
+
     function resize() {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
-      width = canvas.offsetWidth;
+      width  = canvas.offsetWidth;
       height = canvas.offsetHeight;
-      canvas.width = width * dpr;
+      canvas.width  = width  * dpr;
       canvas.height = height * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
- 
-    function initParticles() {
-      const count = Math.min(60, Math.floor((width * height) / 22000));
+
+    function spawn() {
+      const count = Math.min(cfg.count, Math.floor((width * height) / cfg.density));
       particles = Array.from({ length: count }, () => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        r: Math.random() * 1.6 + 0.4,
-        vx: (Math.random() - 0.5) * 0.25,
-        vy: (Math.random() - 0.5) * 0.25,
-        o: Math.random() * 0.5 + 0.15
+        x:  Math.random() * width,
+        y:  Math.random() * height,
+        r:  Math.random() * (cfg.maxR - cfg.minR) + cfg.minR,
+        vx: (Math.random() - 0.5) * cfg.speed,
+        vy: (Math.random() - 0.5) * cfg.speed,
+        o:  Math.random() * (cfg.maxOpacity - cfg.minOpacity) + cfg.minOpacity,
       }));
     }
- 
+
     function draw() {
       ctx.clearRect(0, 0, width, height);
+
+      // Conexões
+      if (cfg.connect) {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const a = particles[i], b = particles[j];
+            const dx = a.x - b.x, dy = a.y - b.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < cfg.connectDist) {
+              const alpha = cfg.connectOpacity * (1 - dist / cfg.connectDist);
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = `rgba(${cfg.color},${alpha.toFixed(3)})`;
+              ctx.lineWidth = 0.6;
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      // Pontos
       particles.forEach(p => {
         p.x += p.vx;
         p.y += p.vy;
-        if (p.x < 0) p.x = width; if (p.x > width) p.x = 0;
-        if (p.y < 0) p.y = height; if (p.y > height) p.y = 0;
+        if (p.x < 0) p.x = width;  if (p.x > width)  p.x = 0;
+        if (p.y < 0) p.y = height; if (p.y > height)  p.y = 0;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(250,0,0,${p.o})`;
+        ctx.fillStyle = `rgba(${cfg.color},${p.o})`;
         ctx.fill();
       });
-      requestAnimationFrame(draw);
+
+      rafId = requestAnimationFrame(draw);
     }
- 
+
+    // Pausar quando fora do viewport (performance)
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { if (!rafId) draw(); }
+        else { cancelAnimationFrame(rafId); rafId = null; }
+      });
+    }, { threshold: 0.01 });
+    io.observe(canvas);
+
     resize();
-    initParticles();
-    draw();
-    window.addEventListener('resize', () => { resize(); initParticles(); }, { passive: true });
+    spawn();
+    window.addEventListener('resize', () => { resize(); spawn(); }, { passive: true });
   }
+
+  // Hero — canvas dedicado (mais denso, sem conexões)
+  initCanvas(document.getElementById('particles'), {
+    count: 110,
+    density: 11000,
+    minR: 0.5,
+    maxR: 2.4,
+    speed: 0.28,
+    minOpacity: 0.32,
+    maxOpacity: 0.80,
+    connect: true,
+    connectDist: 130,
+    connectOpacity: 0.22,
+  });
+
+  // Seções — todos os .section-particles
+  document.querySelectorAll('.section-particles').forEach((canvas, i) => {
+    initCanvas(canvas, {
+      count: 70,
+      density: 16000,
+      minR: 0.5,
+      maxR: 1.8,
+      speed: 0.20,
+      minOpacity: 0.22,
+      maxOpacity: 0.60,
+      connect: true,
+      connectDist: 100,
+      connectOpacity: 0.14,
+    });
+  });
  
   /* ---------------- Animação de código no laptop (signature) ---------------- */
   const codeEl = document.getElementById('codeType');
@@ -350,7 +426,6 @@
         phone: form.phone.value.trim(),
         service: form.service.value,
         message: form.message.value.trim(),
-        newsletter: form.newsletter.checked ? 'Sim' : 'Não',
         to_email: CONFIG.DESTINATION_EMAIL
       };
  
@@ -409,16 +484,6 @@
     return `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
   }
  
-  /* ---------------- Newsletter (rodapé) ---------------- */
-  const newsletterForm = document.getElementById('newsletterForm');
-  newsletterForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const input = document.getElementById('newsletterEmail');
-    if (input.checkValidity()) {
-      input.value = '';
-      input.placeholder = 'Inscrito! ✓';
-    }
-  });
  
   /* ---------------- Botão voltar ao topo ---------------- */
   const toTop = document.getElementById('toTop');
