@@ -475,7 +475,7 @@
   /* ---------------- Notificação no WhatsApp (link direto, sem bot) ---------------- */
   function buildWhatsAppLink(data) {
     const text =
-      `Novo contato no site VISZ.dev\n` +
+      `Novo contato no site da Agência VISZ\n` +
       `Nome: ${data.name}\n` +
       `E-mail: ${data.email}\n` +
       `Telefone: ${data.phone}\n` +
@@ -485,6 +485,20 @@
   }
  
  
+  /* ---------------- Pré-selecionar serviço ao clicar em um pacote ---------------- */
+  document.querySelectorAll('.js-pick-service').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const select = document.getElementById('service');
+      const wanted = btn.dataset.service;
+      if (!select || !wanted) return;
+      const option = Array.from(select.options).find(o => o.text.trim() === wanted);
+      if (option) {
+        select.value = option.value || option.text;
+        select.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+  });
+
   /* ---------------- Botão voltar ao topo ---------------- */
   const toTop = document.getElementById('toTop');
   window.addEventListener('scroll', () => {

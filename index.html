@@ -2,26 +2,27 @@
 <html lang="pt-BR">
 
 <head>
+  <script>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   <!-- ============ SEO PRIMÁRIO ============ -->
-  <title>VISZ.dev — Sites, Sistemas e Landing Pages que Vendem | Recife, PE</title>
+  <title>Agência VISZ — Sites, Tráfego Pago e Social Media que Vendem | Recife, PE</title>
   <meta name="description"
-    content="Desenvolvemos sites institucionais, landing pages e sistemas web de alta performance para empresas que querem crescer no digital. Design premium, SEO avançado e conversão real. Solicite um orçamento.">
+    content="Agência VISZ: sites e sistemas, gestão de tráfego pago e social media na mesma parceria. Presença digital que vende, com atendimento remoto para todo o Brasil. Peça um diagnóstico gratuito.">
   <meta name="keywords"
-    content="desenvolvimento de sites, landing pages, criação de sites, sistemas web, agência digital Recife, sites institucionais, e-commerce, SEO, performance web, VISZ.dev">
-  <meta name="author" content="VISZ.dev">
+    content="agência digital Recife, criação de sites, landing pages, tráfego pago, gestão de tráfego, Meta Ads, Google Ads, social media, agência de marketing digital, VISZ, VISZ.dev">
+  <meta name="author" content="Agência VISZ">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://visz.dev/">
   <meta name="theme-color" content="#000000">
 
   <!-- ============ OPEN GRAPH ============ -->
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="VISZ.dev">
-  <meta property="og:title" content="VISZ.dev — Seu site não deve apenas existir. Ele deve vender.">
+  <meta property="og:site_name" content="Agência VISZ">
+  <meta property="og:title" content="Agência VISZ — Sua marca não deve apenas existir. Ela deve vender.">
   <meta property="og:description"
-    content="Criamos sites modernos, rápidos e estratégicos para empresas que querem crescer no digital. Performance, SEO e design premium em cada projeto.">
+    content="Site que converte, tráfego que traz as pessoas certas e conteúdo que mantém a marca viva. Tudo na mesma agência.">
   <meta property="og:url" content="https://visz.dev/">
   <meta property="og:image" content="https://visz.dev/assets/LogoVISZ.png">
   <meta property="og:image:width" content="1200">
@@ -30,9 +31,9 @@
 
   <!-- ============ TWITTER CARDS ============ -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VISZ.dev — Seu site não deve apenas existir. Ele deve vender.">
+  <meta name="twitter:title" content="Agência VISZ — Sua marca não deve apenas existir. Ela deve vender.">
   <meta name="twitter:description"
-    content="Sites, landing pages e sistemas web de alta performance. Design premium, SEO avançado e conversão real.">
+    content="Sites e sistemas, tráfego pago e social media. Presença digital que vende.">
   <meta name="twitter:image" content="https://visz.dev/assets/LogoVISZ.png">
 
   <!-- ============ ÍCONES / MANIFEST ============ -->
@@ -48,14 +49,16 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
 
   <!-- ============ JSON-LD SCHEMA.ORG ============ -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "VISZ.dev",
-  "image": "https://visz.dev/assets/og-cover.jpg",
+  "name": "Agência VISZ",
+  "alternateName": ["VISZ", "VISZ.dev"],
+  "image": "https://visz.dev/assets/LogoVISZ.png",
   "url": "https://visz.dev/",
   "telephone": "+55-81-98574-2601",
   "priceRange": "$$",
@@ -66,7 +69,12 @@
     "addressCountry": "BR"
   },
   "areaServed": "BR",
-  "description": "Agência especializada em desenvolvimento de sites institucionais, landing pages, e-commerce e sistemas web sob medida, com foco em performance, SEO e conversão.",
+  "description": "Agência digital de ponta a ponta: desenvolvimento de sites e sistemas (VISZ Dev), gestão de tráfego pago (VISZ Growth) e social media (VISZ Social).",
+  "makesOffer": [
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "VISZ Dev — sites, landing pages, lojas virtuais e sistemas web"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "VISZ Growth — gestão de tráfego pago (Meta Ads e Google Ads)"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "VISZ Social — social media, conteúdo e reels"}}
+  ],
   "sameAs": [
     "https://instagram.com/visz.dev",
     "https://www.linkedin.com/company/visz-dev"
@@ -82,23 +90,23 @@
   <!-- ================= HEADER ================= -->
   <header class="header" id="header">
     <div class="container header__inner">
-      <a href="#top" class="logo" aria-label="VISZ.dev — página inicial">
-        <span class="logo__mark">VISZ<span class="logo__dot">.</span><span class="logo__accent">dev</span></span>
+      <a href="#top" class="logo" aria-label="Agência VISZ — página inicial">
+        <span class="logo__mark">VISZ<span class="logo__tag">agência</span></span>
       </a>
 
       <nav class="nav" id="nav" aria-label="Navegação principal">
         <ul class="nav__list">
-          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#servicos">Frentes</a></li>
+          <li><a href="#pacotes">Pacotes</a></li>
           <li><a href="#processo">Processo</a></li>
           <li><a href="#portfolio">Portfólio</a></li>
-          <li><a href="#depoimentos">Depoimentos</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
 
       <div class="header__actions">
-        <a href="#contato" class="btn btn--primary btn--sm">Solicitar orçamento</a>
+        <a href="#contato" class="btn btn--primary btn--sm">Pedir diagnóstico</a>
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false"
           aria-controls="mobileMenu">
           <span></span><span></span><span></span>
@@ -108,14 +116,14 @@
 
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
       <ul>
-        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#servicos">Frentes</a></li>
+        <li><a href="#pacotes">Pacotes</a></li>
         <li><a href="#processo">Processo</a></li>
         <li><a href="#portfolio">Portfólio</a></li>
-        <li><a href="#depoimentos">Depoimentos</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
-      <a href="#contato" class="btn btn--primary btn--block">Solicitar orçamento</a>
+      <a href="#contato" class="btn btn--primary btn--block">Pedir diagnóstico</a>
     </div>
   </header>
 
@@ -128,29 +136,30 @@
 
       <div class="container hero__inner">
         <div class="hero__content reveal">
-          <p class="eyebrow"><span class="eyebrow__dot"></span> Agência de desenvolvimento web — Recife/PE</p>
+          <p class="eyebrow"><span class="eyebrow__dot"></span> Agência digital de ponta a ponta — Recife/PE</p>
           <h1 class="hero__title">
-            Seu site não deve<br>
+            Sua marca não deve<br>
             apenas existir.<br>
-            <span class="text-red">Ele deve vender.</span>
+            <span class="text-red">Ela deve vender.</span>
           </h1>
           <p class="hero__text">
-            Criamos sites, landing pages e sistemas web rápidos, sólidos e estratégicos
-            para empresas que decidiram parar de perder cliente por causa de um site fraco.
+            O site que converte, o tráfego que traz as pessoas certas e o conteúdo que mantém
+            a marca viva. Tudo sob a mesma agência, com atendimento remoto para todo o Brasil.
           </p>
           <div class="hero__cta">
             <a href="#contato" class="btn btn--primary btn--lg">
-              Solicitar orçamento
+              Pedir diagnóstico gratuito
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg>
             </a>
-            <a href="#portfolio" class="btn btn--ghost btn--lg">Ver projetos</a>
+            <a href="#servicos" class="btn btn--ghost btn--lg">Conhecer as frentes</a>
           </div>
           <div class="hero__trust" role="list" aria-label="Selos de confiança">
-            <span role="listitem">Código próprio, sem templates genéricos</span>
-            <span role="listitem">Entrega com SEO técnico incluso</span>
+            <span role="listitem">Site, tráfego e conteúdo integrados</span>
+            <span role="listitem">Código próprio, sem templates</span>
+            <span role="listitem">Verba de anúncio sempre na sua conta</span>
           </div>
         </div>
 
@@ -160,7 +169,7 @@
               <div class="window">
                 <div class="window__bar">
                   <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
-                  <span class="window__title">visz.dev — build.tsx</span>
+                  <span class="window__title">agencia-visz — build.tsx</span>
                 </div>
                 <div class="window__body">
                   <pre class="code" id="codeType"></pre>
@@ -181,6 +190,9 @@
               </div>
             </div>
             <div class="laptop__base"></div>
+            <div class="float-chip float-chip--dev"><span class="float-chip__dot"></span><b>VISZ Dev</b><small>site no ar</small></div>
+            <div class="float-chip float-chip--growth"><span class="float-chip__dot"></span><b>VISZ Growth</b><small>campanhas ativas</small></div>
+            <div class="float-chip float-chip--social"><span class="float-chip__dot"></span><b>VISZ Social</b><small>posts agendados</small></div>
           </div>
         </div>
       </div>
@@ -203,8 +215,8 @@
           <span class="stat__label">satisfação dos clientes</span>
         </div>
         <div class="stat reveal">
-          <span class="stat__number" data-count="0" data-static="A+">0</span>
-          <span class="stat__label">performance Lighthouse</span>
+          <span class="stat__number" data-count="0" data-static="3">0</span>
+          <span class="stat__label">frentes integradas: dev, growth e social</span>
         </div>
         <div class="stat reveal">
           <span class="stat__number" data-count="0" data-static="100%">0</span>
@@ -219,349 +231,304 @@
       <div class="container">
         <div class="section__head reveal">
           <p class="eyebrow"><span class="eyebrow__dot"></span> O que fazemos</p>
-          <h2 class="section__title">Um time. Toda a operacao digital do seu negocio.</h2>
-          <p class="section__text">Do primeiro wireframe à manutenção contínua — sem terceirizar, sem intermediário, sem gargalo.</p>
+          <h2 class="section__title">Três frentes. Uma agência. Presença digital que vende.</h2>
+          <p class="section__text">Você pode começar por uma frente ou juntar as três. Quando trabalham juntas, o site converte melhor, o tráfego custa menos e o conteúdo tem para onde levar as pessoas.</p>
         </div>
 
-        <!-- Layout: 2 colunas assimétricas com cards horizontais grandes -->
-        <div class="services-bento">
-
-          <article class="svc-feature reveal">
-            <div class="svc-feature__num" aria-hidden="true">01</div>
-            <div class="svc-feature__icon">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Z" stroke="currentColor" stroke-width="1.6"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <div class="fronts">
+          <article class="front front--dev reveal">
+            <div class="front__top">
+              <span class="front__num" aria-hidden="true">01</span>
+              <div class="front__icon"><svg viewBox="0 0 24 24" fill="none"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             </div>
-            <div class="svc-feature__body">
-              <h3>Sites Institucionais</h3>
-              <p>Presença digital sólida, rápida e alinhada à forma como sua marca quer ser vista no mercado.</p>
-            </div>
-            <div class="svc-feature__tag">Mais popular</div>
+            <p class="front__tag">Desenvolvimento</p>
+            <h3>VISZ Dev</h3>
+            <p class="front__desc">Sites e sistemas rápidos, sólidos e feitos para converter. Código próprio, sem template genérico.</p>
+            <ul class="front__list"><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sites institucionais e landing pages</li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Lojas virtuais (e-commerce)</li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sistemas web sob medida</li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>SEO avançado, performance e segurança</li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Hospedagem gerenciada, automações e integrações</li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Manutenção e suporte, sob demanda ou mensal</li></ul>
+            <a href="#pacotes" class="front__link">Ver pacote Presença
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
           </article>
-
-          <article class="svc-feature reveal">
-            <div class="svc-feature__num" aria-hidden="true">02</div>
-            <div class="svc-feature__icon">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M13 2 3 14h7l-1 8 11-14h-8l1-6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <article class="front front--growth reveal">
+            <div class="front__top">
+              <span class="front__num" aria-hidden="true">02</span>
+              <div class="front__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 17 9 11l4 4 8-8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h6v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             </div>
-            <div class="svc-feature__body">
-              <h3>Landing Pages</h3>
-              <p>Páginas construídas com um único objetivo: converter tráfego em lead, cadastro ou venda.</p>
-            </div>
+            <p class="front__tag">Tráfego pago</p>
+            <h3>VISZ Growth</h3>
+            <p class="front__desc">Campanhas que levam as pessoas certas até o seu site, WhatsApp ou formulário, com leitura clara de resultado.</p>
+            <ul class="front__list"><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Diagnóstico de negócio, funil e público</li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Meta Ads (Instagram e Facebook) e Google Ads</li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Criativos e copy de anúncios, com testes</li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Tracking: pixel, GA4, Tag Manager e conversões</li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Integração com WhatsApp, formulários e CRM</li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Relatório mensal em Looker Studio</li></ul>
+            <a href="#pacotes" class="front__link">Ver pacote Growth
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
           </article>
-
-          <article class="svc-feature reveal">
-            <div class="svc-feature__num" aria-hidden="true">03</div>
-            <div class="svc-feature__icon">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="20.5" r="1.4" fill="currentColor"/><circle cx="17.5" cy="20.5" r="1.4" fill="currentColor"/></svg>
+          <article class="front front--social reveal">
+            <div class="front__top">
+              <span class="front__num" aria-hidden="true">03</span>
+              <div class="front__icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div>
             </div>
-            <div class="svc-feature__body">
-              <h3>Lojas Virtuais</h3>
-              <p>E-commerce com checkout ágil, catálogo escalável e infraestrutura pronta para picos de venda.</p>
-            </div>
+            <p class="front__tag">Social media</p>
+            <h3>VISZ Social</h3>
+            <p class="front__desc">Conteúdo planejado, bonito e constante para a sua marca ficar viva e ser lembrada.</p>
+            <ul class="front__list"><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Planejamento estratégico e linha editorial</li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Calendário mensal de conteúdo</li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Design de posts, carrosséis e stories</li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Captação de fotos e vídeos</li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Edição de reels e vídeos curtos</li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Copy, legendas, agendamento e relatório mensal</li></ul>
+            <a href="#pacotes" class="front__link">Ver pacote Social
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
           </article>
-
-          <article class="svc-feature reveal">
-            <div class="svc-feature__num" aria-hidden="true">04</div>
-            <div class="svc-feature__icon">
-              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="12" rx="1.6" stroke="currentColor" stroke-width="1.6"/><path d="M8 21h8M12 16v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            </div>
-            <div class="svc-feature__body">
-              <h3>Sistemas Web</h3>
-              <p>Plataformas, painéis e ferramentas internas desenhadas em torno do seu processo, não do contrário.</p>
-            </div>
-          </article>
-
         </div>
 
-        <!-- Grade de serviços secundários em pill/chips estilo elegante -->
-        <div class="services-chips reveal">
-          <div class="svc-chip">
-            <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="m21 21-4.3-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            SEO Avançado
+        <div class="ecosystem reveal">
+          <div class="ecosystem__orbit" aria-hidden="true">
+            <span class="ecosystem__node">Dev</span>
+            <span class="ecosystem__line"></span>
+            <span class="ecosystem__node">Growth</span>
+            <span class="ecosystem__line"></span>
+            <span class="ecosystem__node">Social</span>
           </div>
-          <div class="svc-chip">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h7l-1 8 10-14h-7z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            Performance
+          <div class="ecosystem__text">
+            <h3>Ecossistema VISZ</h3>
+            <p>Site, tráfego e social integrados, com uma só estratégia, um só time e desconto de combo na mensalidade.</p>
           </div>
-          <div class="svc-chip">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2 3 7v6c0 5 4 8.5 9 9 5-.5 9-4 9-9V7l-9-5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            Seguranca
-          </div>
-          <div class="svc-chip">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M17.5 19a4.5 4.5 0 0 0 0-9c-.3-3.4-3.1-6-6.5-6-3 0-5.5 2.1-6.2 5A4.5 4.5 0 0 0 6.5 19h11Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            Hospedagem
-          </div>
-          <div class="svc-chip">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M18 3v4h-4M6 21v-4h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Automacoes
-          </div>
-          <div class="svc-chip">
-            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.4" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.4" stroke="currentColor" stroke-width="1.6"/><path d="M10 6.5h4a3 3 0 0 1 3 3V14" stroke="currentColor" stroke-width="1.6"/></svg>
-            Integracoes
-          </div>
-          <div class="svc-chip">
-            <svg viewBox="0 0 24 24" fill="none"><rect x="7" y="2.5" width="10" height="19" rx="2.4" stroke="currentColor" stroke-width="1.6"/><path d="M11 18h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            Responsivo
-          </div>
-          <div class="svc-chip">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M8.5 12.5 11 15l4.5-5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3c2 1.6 4 2.3 7 2.3 0 8.4-3 12.4-7 14.7-4-2.3-7-6.3-7-14.7 3 0 5-.7 7-2.3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            Manutencao
-          </div>
+          <a href="#contato" class="btn btn--primary js-pick-service" data-service="Pacote Ecossistema (site + tráfego + social)">Quero o Ecossistema</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PACOTES ================= -->
+    <section class="section section--dark" id="pacotes">
+      <canvas class="section-particles" aria-hidden="true"></canvas>
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="eyebrow__dot"></span> Pacotes</p>
+          <h2 class="section__title">Escolha por onde começar.</h2>
+          <p class="section__text">Cada pacote tem escopo, prazos e limite de revisões definidos em contrato. Os valores são montados conforme o seu momento, e você recebe a proposta detalhada sem compromisso.</p>
         </div>
 
+        <div class="packs">
+          <article class="pack reveal">
+            <p class="pack__front">VISZ Dev</p>
+            <h3>Presença</h3>
+            <p class="pack__what">Site ou landing page com tracking configurado desde o primeiro dia.</p>
+            <p class="pack__price"><strong>Projeto</strong><span>valor único</span></p>
+            <a href="#contato" class="btn btn--ghost btn--block js-pick-service" data-service="Pacote Presença (site ou landing page)">Pedir proposta</a>
+          </article>
+
+          <article class="pack reveal">
+            <p class="pack__front">VISZ Growth</p>
+            <h3>Growth</h3>
+            <p class="pack__what">Gestão mensal de tráfego pago com relatório de resultados e próximos passos.</p>
+            <p class="pack__price"><strong>Fee mensal fixo</strong><span>verba de anúncio paga por você direto na plataforma</span></p>
+            <a href="#contato" class="btn btn--ghost btn--block js-pick-service" data-service="Gestão de tráfego pago (Growth)">Pedir proposta</a>
+          </article>
+
+          <article class="pack reveal">
+            <p class="pack__front">VISZ Social</p>
+            <h3>Social Essencial</h3>
+            <p class="pack__what">Planejamento, calendário editorial, posts e stories para manter a marca presente.</p>
+            <p class="pack__price"><strong>Mensalidade</strong><span>por volume de entregas</span></p>
+            <a href="#contato" class="btn btn--ghost btn--block js-pick-service" data-service="Social media (Social Essencial)">Pedir proposta</a>
+          </article>
+
+          <article class="pack reveal">
+            <p class="pack__front">VISZ Social</p>
+            <h3>Social Pro</h3>
+            <p class="pack__what">Tudo do Essencial, com reels, captação de foto e vídeo e mais entregas por mês.</p>
+            <p class="pack__price"><strong>Mensalidade</strong><span>volume maior de entregas</span></p>
+            <a href="#contato" class="btn btn--ghost btn--block js-pick-service" data-service="Social media (Social Pro)">Pedir proposta</a>
+          </article>
+
+          <article class="pack pack--featured reveal">
+            <span class="pack__badge">Combo com desconto</span>
+            <p class="pack__front">Dev + Growth + Social</p>
+            <h3>Ecossistema</h3>
+            <p class="pack__what">Site, tráfego e social integrados, com estratégia única e desconto de combo.</p>
+            <p class="pack__price"><strong>Mensalidade</strong><span>com desconto de combo</span></p>
+            <a href="#contato" class="btn btn--primary btn--block js-pick-service" data-service="Pacote Ecossistema (site + tráfego + social)">Pedir proposta</a>
+          </article>
+
+          <article class="pack reveal">
+            <p class="pack__front">VISZ Dev</p>
+            <h3>Suporte mensal</h3>
+            <p class="pack__what">Alterações de conteúdo e manutenção técnica do seu site, todo mês.</p>
+            <p class="pack__price"><strong>R$ 750,00</strong><span>por mês</span></p>
+            <a href="#contato" class="btn btn--ghost btn--block js-pick-service" data-service="Suporte mensal">Contratar suporte</a>
+          </article>
+        </div>
+
+        <ul class="trust-rules reveal" aria-label="Como trabalhamos com você">
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Sua verba é sua.</b> O dinheiro dos anúncios fica no seu cartão e na sua conta, nunca passa pela agência.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Acesso seguro.</b> Trabalhamos por permissão de parceiro, sem pedir senha das suas contas.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Metas claras.</b> Entregamos acompanhamento e relatório. Não prometemos número de vendas.</span></li>
+        </ul>
       </div>
     </section>
 
     <!-- ================= PROCESSO ================= -->
-    <section class="section section--dark" id="processo">
+    <section class="section" id="processo">
       <canvas class="section-particles" aria-hidden="true"></canvas>
       <div class="container">
         <div class="section__head reveal">
           <p class="eyebrow"><span class="eyebrow__dot"></span> Como trabalhamos</p>
-          <h2 class="section__title">Um metodo claro, do briefing a publicacao.</h2>
-          <p class="section__text">Sete etapas, sem zona cinzenta — você sabe exatamente onde seu projeto está a cada semana.</p>
+          <h2 class="section__title">Um método claro, do diagnóstico ao relatório.</h2>
+          <p class="section__text">A mesma jornada para qualquer frente. Você sempre sabe em que etapa está e o que vem a seguir.</p>
         </div>
 
-        <!-- Layout horizontal tipo ferroviário/stepper premium -->
         <div class="process-rail">
           <div class="process-rail__line" aria-hidden="true"></div>
-
           <div class="process-step reveal">
-            <div class="process-step__dot">
-              <span>01</span>
-            </div>
-            <div class="process-step__card">
-              <h3>Descoberta</h3>
-              <p>Entendemos seu negócio, seu público e o que precisa acontecer para o site gerar resultado.</p>
-            </div>
+            <div class="process-step__dot"><span>01</span></div>
+            <div class="process-step__card"><h3>Diagnóstico e onboarding</h3><p>Briefing, acessos, objetivos e público. Entendemos o seu negócio antes de qualquer entrega.</p></div>
           </div>
 
           <div class="process-step reveal">
-            <div class="process-step__dot">
-              <span>02</span>
-            </div>
-            <div class="process-step__card">
-              <h3>Planejamento</h3>
-              <p>Estrutura de páginas, jornada do usuário e escopo técnico definidos antes de qualquer linha de código.</p>
-            </div>
+            <div class="process-step__dot"><span>02</span></div>
+            <div class="process-step__card"><h3>Estratégia</h3><p>Funil, personas, linha editorial e metas definidos para guiar site, anúncios e conteúdo.</p></div>
           </div>
 
           <div class="process-step reveal">
-            <div class="process-step__dot">
-              <span>03</span>
-            </div>
-            <div class="process-step__card">
-              <h3>Design</h3>
-              <p>Identidade visual exclusiva, aplicada ao seu contexto — nada de template adaptado às pressas.</p>
-            </div>
+            <div class="process-step__dot"><span>03</span></div>
+            <div class="process-step__card"><h3>Produção</h3><p>Site, criativos, conteúdo e campanhas construídos com identidade própria, sem template adaptado.</p></div>
           </div>
 
           <div class="process-step reveal">
-            <div class="process-step__dot">
-              <span>04</span>
-            </div>
-            <div class="process-step__card">
-              <h3>Desenvolvimento</h3>
-              <p>Código próprio, semântico e otimizado, construído para performance desde a primeira linha.</p>
-            </div>
+            <div class="process-step__dot"><span>04</span></div>
+            <div class="process-step__card"><h3>Aprovação</h3><p>Você revisa dentro do prazo e do limite de revisões do contrato, sem surpresa no caminho.</p></div>
           </div>
 
           <div class="process-step reveal">
-            <div class="process-step__dot">
-              <span>05</span>
-            </div>
-            <div class="process-step__card">
-              <h3>Testes</h3>
-              <p>Validação em dispositivos reais, revisão de performance, acessibilidade e compatibilidade.</p>
-            </div>
+            <div class="process-step__dot"><span>05</span></div>
+            <div class="process-step__card"><h3>Publicação e veiculação</h3><p>Site no ar, posts publicados e campanhas ativas, com acompanhamento nas primeiras horas.</p></div>
           </div>
 
           <div class="process-step reveal">
-            <div class="process-step__dot">
-              <span>06</span>
-            </div>
-            <div class="process-step__card">
-              <h3>Publicacao</h3>
-              <p>Site no ar, indexado corretamente e monitorado nas primeiras horas críticas.</p>
-            </div>
+            <div class="process-step__dot process-step__dot--last"><span>06</span></div>
+            <div class="process-step__card"><h3>Relatório e ajustes</h3><p>Leitura mensal dos resultados e plano do próximo ciclo, com recomendações claras.</p></div>
           </div>
 
-          <div class="process-step reveal">
-            <div class="process-step__dot process-step__dot--last">
-              <span>07</span>
-            </div>
-            <div class="process-step__card">
-              <h3>Suporte</h3>
-              <p>Acompanhamento contínuo após a entrega — seu site evolui junto com o seu negócio.</p>
-            </div>
-          </div>
         </div>
 
+        <div class="cycles">
+          <article class="cycle reveal">
+            <p class="cycle__tag">VISZ Social</p>
+            <h3>Ciclo mensal de conteúdo</h3>
+            <ol class="cycle__list">
+              <li><b>Dias 1 a 3</b><span>Briefing do mês e coleta de materiais</span></li>
+              <li><b>Até o dia 5</b><span>Calendário editorial enviado e aprovado</span></li>
+              <li><b>Semanas 1 a 4</b><span>Produção, aprovação semanal e agendamento</span></li>
+              <li><b>Fim do mês</b><span>Relatório de métricas e proposta do próximo ciclo</span></li>
+            </ol>
+          </article>
+          <article class="cycle reveal">
+            <p class="cycle__tag">VISZ Growth</p>
+            <h3>Ciclo de tráfego pago</h3>
+            <ol class="cycle__list">
+              <li><b>Semana 1</b><span>Setup de contas, pixel, GA4, GTM e públicos, com os primeiros criativos</span></li>
+              <li><b>Semanas 2 a 4</b><span>Veiculação, testes A/B e otimizações semanais</span></li>
+              <li><b>Todo mês</b><span>Relatório com investimento, leads, custo por resultado e recomendações</span></li>
+            </ol>
+          </article>
+        </div>
       </div>
     </section>
+
     <!-- ================= DIFERENCIAIS ================= -->
     <section class="section" id="diferenciais">
       <canvas class="section-particles" aria-hidden="true"></canvas>
       <div class="container">
         <div class="section__head reveal">
-          <p class="eyebrow"><span class="eyebrow__dot"></span> Por que a VISZ.dev</p>
-          <h2 class="section__title">O padrao que a maioria promete e poucos entregam.</h2>
+          <p class="eyebrow"><span class="eyebrow__dot"></span> Por que a VISZ</p>
+          <h2 class="section__title">O padrão que a maioria promete e poucos entregam.</h2>
         </div>
 
-        <!-- Layout: lista vertical elegante estilo manifesto/editorial -->
         <div class="diff-manifesto">
-
           <div class="diff-line reveal">
             <div class="diff-line__left">
-              <div class="diff-line__icon">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M13 2 3 14h7l-1 8 10-14h-7l1-6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-              </div>
+              <div class="diff-line__icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="7" cy="12" r="3.5" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="12" r="3.5" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 12h3" stroke="currentColor" stroke-width="1.6"/></svg></div>
               <span class="diff-line__num" aria-hidden="true">01</span>
             </div>
-            <div class="diff-line__content">
-              <h3>Alta Performance</h3>
-              <p>Carregamento abaixo de 2s e código enxuto em todos os projetos.</p>
-            </div>
-            <div class="diff-line__metric">
-              <strong>&lt; 2s</strong>
-              <span>load time</span>
-            </div>
+            <div class="diff-line__content"><h3>Estratégia integrada</h3><p>Site, tráfego e conteúdo pensados juntos, com um só time e uma só visão.</p></div>
+            <div class="diff-line__metric"><strong>3 em 1</strong><span>frentes</span></div>
           </div>
 
           <div class="diff-line reveal">
             <div class="diff-line__left">
-              <div class="diff-line__icon">
-                <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="m21 21-4.3-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-              </div>
+              <div class="diff-line__icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2.2" stroke="currentColor" stroke-width="1.6"/><path d="M16 12.5h2.5M3 10h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
               <span class="diff-line__num" aria-hidden="true">02</span>
             </div>
-            <div class="diff-line__content">
-              <h3>SEO Avancado</h3>
-              <p>Estrutura técnica pensada para ranquear desde o primeiro dia.</p>
-            </div>
-            <div class="diff-line__metric">
-              <strong>100</strong>
-              <span>Lighthouse SEO</span>
-            </div>
+            <div class="diff-line__content"><h3>Verba sempre sua</h3><p>O dinheiro dos anúncios fica na sua conta e no seu cartão, nunca com a agência.</p></div>
+            <div class="diff-line__metric"><strong>100%</strong><span>sob seu controle</span></div>
           </div>
 
           <div class="diff-line reveal">
             <div class="diff-line__left">
-              <div class="diff-line__icon">
-                <svg viewBox="0 0 24 24" fill="none"><rect x="7" y="2.5" width="10" height="19" rx="2.4" stroke="currentColor" stroke-width="1.6"/><path d="M11 18h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-              </div>
+              <div class="diff-line__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
               <span class="diff-line__num" aria-hidden="true">03</span>
             </div>
-            <div class="diff-line__content">
-              <h3>100% Responsivo</h3>
-              <p>Experiência consistente em qualquer tela, do celular ao desktop.</p>
-            </div>
-            <div class="diff-line__metric">
-              <strong>3</strong>
-              <span>breakpoints</span>
-            </div>
+            <div class="diff-line__content"><h3>Relatório mensal</h3><p>Investimento, leads, custo por resultado e próximos passos, em Looker Studio.</p></div>
+            <div class="diff-line__metric"><strong>1x</strong><span>por mês</span></div>
           </div>
 
           <div class="diff-line reveal">
             <div class="diff-line__left">
-              <div class="diff-line__icon">
-                <svg viewBox="0 0 24 24" fill="none"><rect x="4.5" y="10.5" width="15" height="10" rx="1.8" stroke="currentColor" stroke-width="1.6"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-              </div>
+              <div class="diff-line__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 3 14h7l-1 8 10-14h-7l1-6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
               <span class="diff-line__num" aria-hidden="true">04</span>
             </div>
-            <div class="diff-line__content">
-              <h3>Seguranca</h3>
-              <p>Certificados, boas práticas e proteção de dados aplicados por padrão.</p>
-            </div>
-            <div class="diff-line__metric">
-              <strong>SSL</strong>
-              <span>incluso</span>
-            </div>
+            <div class="diff-line__content"><h3>Alta performance</h3><p>Carregamento abaixo de 2 segundos e código enxuto em todos os projetos.</p></div>
+            <div class="diff-line__metric"><strong>&lt; 2s</strong><span>tempo de carga</span></div>
           </div>
 
           <div class="diff-line reveal">
             <div class="diff-line__left">
-              <div class="diff-line__icon">
-                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg>
-              </div>
+              <div class="diff-line__icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="m21 21-4.3-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
               <span class="diff-line__num" aria-hidden="true">05</span>
             </div>
-            <div class="diff-line__content">
-              <h3>Foco em Conversao</h3>
-              <p>Cada seção existe para levar o visitante a uma ação concreta.</p>
-            </div>
-            <div class="diff-line__metric">
-              <strong>+CVR</strong>
-              <span>garantido</span>
-            </div>
+            <div class="diff-line__content"><h3>SEO avançado</h3><p>Estrutura técnica pensada para ranquear desde o primeiro dia.</p></div>
+            <div class="diff-line__metric"><strong>100</strong><span>Lighthouse SEO</span></div>
           </div>
 
           <div class="diff-line reveal">
             <div class="diff-line__left">
-              <div class="diff-line__icon">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M8.5 12.5 11 15l4.5-5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3c2 1.6 4 2.3 7 2.3 0 8.4-3 12.4-7 14.7-4-2.3-7-6.3-7-14.7 3 0 5-.7 7-2.3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-              </div>
+              <div class="diff-line__icon"><svg viewBox="0 0 24 24" fill="none"><rect x="7" y="2.5" width="10" height="19" rx="2.4" stroke="currentColor" stroke-width="1.6"/><path d="M11 18h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
               <span class="diff-line__num" aria-hidden="true">06</span>
             </div>
-            <div class="diff-line__content">
-              <h3>Suporte Direto</h3>
-              <p>Fala com quem desenvolveu o seu site — sem central de atendimento.</p>
-            </div>
-            <div class="diff-line__metric">
-              <strong>1:1</strong>
-              <span>atendimento</span>
-            </div>
+            <div class="diff-line__content"><h3>100% responsivo</h3><p>Experiência consistente em qualquer tela, do celular ao desktop.</p></div>
+            <div class="diff-line__metric"><strong>100%</strong><span>responsivo</span></div>
           </div>
 
           <div class="diff-line reveal">
             <div class="diff-line__left">
-              <div class="diff-line__icon">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M5 16.5 2.5 19M8 19.5 6 21.5M3 14.5l6.5 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M14.5 2.5c3 0 7 4 7 7 0 2-1 3.5-2.3 4.8L14 19.5l-5.5-5.5 5.2-5.2C15 7.5 16.5 6.5 18.5 6.5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="15.5" cy="8.5" r="1.6" stroke="currentColor" stroke-width="1.6"/></svg>
-              </div>
+              <div class="diff-line__icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4.5" y="10.5" width="15" height="10" rx="1.8" stroke="currentColor" stroke-width="1.6"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
               <span class="diff-line__num" aria-hidden="true">07</span>
             </div>
-            <div class="diff-line__content">
-              <h3>Escalabilidade</h3>
-              <p>Arquitetura preparada para crescer junto com a demanda do seu negócio.</p>
-            </div>
-            <div class="diff-line__metric">
-              <strong>∞</strong>
-              <span>crescimento</span>
-            </div>
+            <div class="diff-line__content"><h3>Segurança de ponta</h3><p>Certificado SSL incluso, boas práticas e proteção de dados por padrão.</p></div>
+            <div class="diff-line__metric"><strong>SSL</strong><span>incluso</span></div>
           </div>
 
           <div class="diff-line reveal">
             <div class="diff-line__left">
-              <div class="diff-line__icon">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M17.5 19a4.5 4.5 0 0 0 0-9c-.3-3.4-3.1-6-6.5-6-3 0-5.5 2.1-6.2 5A4.5 4.5 0 0 0 6.5 19h11Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-              </div>
+              <div class="diff-line__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M17.5 19a4.5 4.5 0 0 0 0-9c-.3-3.4-3.1-6-6.5-6-3 0-5.5 2.1-6.2 5A4.5 4.5 0 0 0 6.5 19h11Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
               <span class="diff-line__num" aria-hidden="true">08</span>
             </div>
-            <div class="diff-line__content">
-              <h3>Hospedagem Gerenciada</h3>
-              <p>Infraestrutura monitorada, sem você precisar entender de servidor.</p>
-            </div>
-            <div class="diff-line__metric">
-              <strong>99.9%</strong>
-              <span>uptime</span>
-            </div>
+            <div class="diff-line__content"><h3>Hospedagem gerenciada</h3><p>Infraestrutura monitorada, sem você precisar entender de servidor.</p></div>
+            <div class="diff-line__metric"><strong>99.9%</strong><span>uptime</span></div>
           </div>
 
           <div class="diff-line reveal">
             <div class="diff-line__left">
-              <div class="diff-line__icon">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M18 3v4h-4M6 21v-4h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
+              <div class="diff-line__icon"><svg viewBox="0 0 24 24" fill="none"><path d="m8 8-4 4 4 4M16 8l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
               <span class="diff-line__num" aria-hidden="true">09</span>
             </div>
-            <div class="diff-line__content">
-              <h3>Codigo 100% Proprio</h3>
-              <p>Nenhum template genérico. Cada projeto é construído do zero.</p>
+            <div class="diff-line__content"><h3>Código 100% próprio</h3><p>Nenhum template genérico. Cada projeto é construído do zero.</p></div>
+            <div class="diff-line__metric"><strong>0</strong><span>templates</span></div>
+          </div>
+
+          <div class="diff-line reveal">
+            <div class="diff-line__left">
+              <div class="diff-line__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8.5 12.5 11 15l4.5-5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3c2 1.6 4 2.3 7 2.3 0 8.4-3 12.4-7 14.7-4-2.3-7-6.3-7-14.7 3 0 5-.7 7-2.3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+              <span class="diff-line__num" aria-hidden="true">10</span>
             </div>
-            <div class="diff-line__metric">
-              <strong>0</strong>
-              <span>templates</span>
-            </div>
+            <div class="diff-line__content"><h3>Suporte direto</h3><p>Você fala com quem desenvolve e cuida do seu projeto, sem central de atendimento.</p></div>
+            <div class="diff-line__metric"><strong>1:1</strong><span>atendimento</span></div>
           </div>
 
         </div>
@@ -786,7 +753,7 @@
           <div class="accordion__item">
             <h3>
               <button class="accordion__trigger" aria-expanded="false" aria-controls="faq-1" id="faq-1-trigger">
-                Quanto custa um site?
+                Quanto custa?
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round" />
@@ -794,7 +761,7 @@
               </button>
             </h3>
             <div class="accordion__panel" id="faq-1" role="region" aria-labelledby="faq-1-trigger">
-              <p>Varia conforme escopo, número de páginas e funcionalidades. Fazemos um diagnóstico gratuito e enviamos
+              <p>Varia conforme a frente e o escopo: páginas e funcionalidades no site, volume de entregas no social, fee de gestão no tráfego. Fazemos um diagnóstico gratuito e enviamos
                 uma proposta detalhada, sem taxa oculta e sem letra miúda.</p>
             </div>
           </div>
@@ -859,6 +826,82 @@
                 você dentro do plano de manutenção — você escolhe o que faz mais sentido.</p>
             </div>
           </div>
+
+          <div class="accordion__item">
+            <h3>
+              <button class="accordion__trigger" aria-expanded="false" aria-controls="faq-6" id="faq-6-trigger">
+                Preciso contratar site, tráfego e social juntos?
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="faq-6" role="region" aria-labelledby="faq-6-trigger">
+              <p>Não. Você pode começar por uma frente só e somar as outras quando fizer sentido. Quando as três trabalham juntas, no pacote Ecossistema, a estratégia fica integrada e a mensalidade tem desconto de combo.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <h3>
+              <button class="accordion__trigger" aria-expanded="false" aria-controls="faq-7" id="faq-7-trigger">
+                O dinheiro dos anúncios passa pela agência?
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="faq-7" role="region" aria-labelledby="faq-7-trigger">
+              <p>Nunca. A verba de anúncio fica no seu cartão e na sua conta, paga direto para o Meta e o Google. A agência cobra apenas o fee de gestão, que é fixo.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <h3>
+              <button class="accordion__trigger" aria-expanded="false" aria-controls="faq-8" id="faq-8-trigger">
+                Vocês garantem um número de vendas?
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="faq-8" role="region" aria-labelledby="faq-8-trigger">
+              <p>Não prometemos resultado de vendas, e desconfie de quem promete. Entregamos estratégia, execução, metas de acompanhamento e um relatório mensal com leads, custo por resultado e os próximos passos.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <h3>
+              <button class="accordion__trigger" aria-expanded="false" aria-controls="faq-9" id="faq-9-trigger">
+                Como funciona a gestão das minhas redes sociais?
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="faq-9" role="region" aria-labelledby="faq-9-trigger">
+              <p>Todo mês fazemos um briefing, entregamos o calendário editorial até o dia 5 para sua aprovação e produzimos os posts, stories e reels ao longo das semanas. No fim do mês você recebe o relatório de métricas.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <h3>
+              <button class="accordion__trigger" aria-expanded="false" aria-controls="faq-10" id="faq-10-trigger">
+                Vocês atendem clínicas e profissionais de saúde?
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="faq-10" role="region" aria-labelledby="faq-10-trigger">
+              <p>Atendemos, seguindo as regras de publicidade do CFM e as políticas de anúncio das plataformas. Esse nicho tem um padrão próprio de comunicação, para proteger você e a sua marca.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -868,9 +911,9 @@
       <canvas class="section-particles" aria-hidden="true"></canvas>
       <div class="cta__glow" aria-hidden="true"></div>
       <div class="container cta__inner reveal">
-        <h2>Vamos construir seu próximo projeto?</h2>
-        <p>Fale com a gente hoje e receba um diagnóstico gratuito do seu site atual.</p>
-        <a href="#contato" class="btn btn--primary btn--xl">Solicitar orçamento agora</a>
+        <h2>Vamos fazer a sua marca vender?</h2>
+        <p>Fale com a gente e receba um diagnóstico gratuito da sua presença digital: site, anúncios e redes sociais.</p>
+        <a href="#contato" class="btn btn--primary btn--xl">Pedir diagnóstico gratuito</a>
       </div>
     </section>
 
@@ -880,8 +923,8 @@
       <div class="container contact__grid">
         <div class="reveal">
           <p class="eyebrow"><span class="eyebrow__dot"></span> Contato</p>
-          <h2 class="section__title">Conta pra gente o que você precisa.</h2>
-          <p class="section__text">Respondemos em até 1 dia útil com um diagnóstico inicial e os próximos passos.</p>
+          <h2 class="section__title">Conta pra gente onde você quer chegar.</h2>
+          <p class="section__text">Respondemos em até 1 dia útil com um diagnóstico inicial e os próximos passos, para qualquer uma das três frentes.</p>
 
           <ul class="contact__list">
             <li>
@@ -910,7 +953,7 @@
           </ul>
 
           <div class="contact__map">
-            <iframe title="Localização VISZ.dev em Recife, PE"
+            <iframe title="Localização da Agência VISZ em Recife, PE"
               src="https://www.google.com/maps?q=Recife,PE&output=embed" loading="lazy"
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
@@ -935,13 +978,27 @@
             <span class="form__error" data-error-for="phone">Informe um telefone válido.</span>
           </div>
           <div class="form__row">
-            <label for="service">Serviço de interesse</label>
+            <label for="service">O que você procura?</label>
             <select id="service" name="service" required aria-required="true">
               <option value="">Selecione</option>
-              <option>Site Institucional</option>
-              <option>Landing Page</option>
-              <option>Loja Virtual</option>
-              <option>Sistema Web</option>
+              <optgroup label="VISZ Dev">
+                <option>Site Institucional</option>
+                <option>Landing Page</option>
+                <option>Loja Virtual</option>
+                <option>Sistema Web</option>
+                <option>Suporte mensal</option>
+              </optgroup>
+              <optgroup label="VISZ Growth">
+                <option>Gestão de tráfego pago (Growth)</option>
+              </optgroup>
+              <optgroup label="VISZ Social">
+                <option>Social media (Social Essencial)</option>
+                <option>Social media (Social Pro)</option>
+              </optgroup>
+              <optgroup label="Combos">
+                <option>Pacote Presença (site ou landing page)</option>
+                <option>Pacote Ecossistema (site + tráfego + social)</option>
+              </optgroup>
               <option>Outro</option>
             </select>
             <span class="form__error" data-error-for="service">Selecione uma opção.</span>
@@ -949,9 +1006,9 @@
           <div class="form__row">
             <label for="message">Mensagem</label>
             <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
-            <span class="form__error" data-error-for="message">Conte um pouco sobre o projeto.</span>
+            <span class="form__error" data-error-for="message">Conte um pouco sobre o seu negócio.</span>
           </div>
-          <button type="submit" class="btn btn--primary btn--block btn--lg">Enviar solicitação</button>
+          <button type="submit" class="btn btn--primary btn--block btn--lg">Enviar e pedir diagnóstico</button>
           <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
           <a href="#" id="waFallback" class="form__wa-fallback" target="_blank" rel="noopener" hidden>
             Seu navegador bloqueou a aba do WhatsApp — toque aqui para confirmar o envio
@@ -966,10 +1023,10 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div class="footer__brand">
-        <span class="logo__mark">VISZ<span class="logo__dot">.</span><span class="logo__accent">dev</span></span>
+        <span class="logo__mark">VISZ<span class="logo__tag">agência</span></span>
         <p>Desenvolvimento web estratégico para empresas que levam o digital a sério.</p>
         <div class="footer__social" aria-label="Redes sociais">
-          <a href="https://instagram.com/visz.dev" target="_blank" rel="noopener" aria-label="Instagram da VISZ.dev">
+          <a href="https://instagram.com/visz.dev" target="_blank" rel="noopener" aria-label="Instagram da Agência VISZ">
             <svg viewBox="0 0 24 24" fill="none">
               <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6" />
               <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6" />
@@ -977,14 +1034,14 @@
             </svg>
           </a>
           <a href="https://www.linkedin.com/company/visz-dev" target="_blank" rel="noopener"
-            aria-label="LinkedIn da VISZ.dev">
+            aria-label="LinkedIn da Agência VISZ">
             <svg viewBox="0 0 24 24" fill="none">
               <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.6" />
               <path d="M7.5 10.5v6M7.5 7.5v.01M12 16.5v-3.6c0-1.6 1-2.4 2.2-2.4 1.2 0 2 .8 2 2.4v3.6"
                 stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
             </svg>
           </a>
-          <a href="https://wa.me/5581985742601" target="_blank" rel="noopener" aria-label="WhatsApp da VISZ.dev">
+          <a href="https://wa.me/5581985742601" target="_blank" rel="noopener" aria-label="WhatsApp da Agência VISZ">
             <svg viewBox="0 0 24 24" fill="none">
               <path
                 d="M21 15.5a2 2 0 0 1-2.2 2 18 18 0 0 1-7.8-2.8 17.5 17.5 0 0 1-5.4-5.4A18 18 0 0 1 3 3.7 2 2 0 0 1 5 1.5h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L9 9a14 14 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"
@@ -994,9 +1051,16 @@
         </div>
       </div>
 
+      <nav class="footer__col" aria-label="Frentes de serviço">
+        <h4>Frentes</h4>
+        <a href="#servicos">VISZ Dev</a>
+        <a href="#servicos">VISZ Growth</a>
+        <a href="#servicos">VISZ Social</a>
+        <a href="#pacotes">Pacotes</a>
+      </nav>
+
       <nav class="footer__col" aria-label="Links rápidos">
         <h4>Navegação</h4>
-        <a href="#servicos">Serviços</a>
         <a href="#processo">Processo</a>
         <a href="#portfolio">Portfólio</a>
         <a href="#depoimentos">Depoimentos</a>
@@ -1013,8 +1077,8 @@
     </div>
 
     <div class="container footer__bottom">
-      <p>© <span id="year"></span> VISZ.dev. Todos os direitos reservados.</p>
-      <p>Feito em Recife, com código próprio.</p>
+      <p>© <span id="year"></span> Agência VISZ. Todos os direitos reservados.</p>
+      <p>Feito em Recife, com código próprio. Atendimento remoto para todo o Brasil.</p>
     </div>
   </footer>
 
@@ -1037,6 +1101,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="js/main.js" defer></script>
+  <script src="js/animations.js" defer></script>
 </body>
 
 </html>

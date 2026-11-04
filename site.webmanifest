@@ -1,7 +1,7 @@
 {
-  "name": "VISZ.dev",
-  "short_name": "VISZ.dev",
-  "description": "Sites, landing pages e sistemas web de alta performance.",
+  "name": "Agência VISZ",
+  "short_name": "VISZ",
+  "description": "Sites e sistemas, tráfego pago e social media. Presença digital que vende.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

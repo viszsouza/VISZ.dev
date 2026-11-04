@@ -1,0 +1,199 @@
+/* =========================================================
+   ANIMAÇÕES AUTOMÁTICAS — Agência VISZ
+   Tudo roda sozinho (carga, scroll e loops), sem depender de hover.
+   Apenas transform/opacity, para manter 60fps.
+   ========================================================= */
+
+/* barra de progresso de leitura (visível mesmo com movimento reduzido) */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 1200;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, #8a0000, var(--red), #ff6a6a);
+  box-shadow: 0 0 14px rgba(250, 0, 0, .7);
+  pointer-events: none;
+}
+
+@property --ang { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* ---------- variações de entrada no scroll ---------- */
+  .reveal[data-anim="left"]:not(.is-visible)  { transform: translateX(-42px); }
+  .reveal[data-anim="right"]:not(.is-visible) { transform: translateX(42px); }
+  .reveal[data-anim="zoom"]:not(.is-visible)  { transform: translateY(26px) scale(.93); }
+
+  /* ---------- HERO: título palavra por palavra ---------- */
+  .js .hero__title:not(.is-split) { opacity: 0; animation: show-fallback .01s 2.5s forwards; }
+  @keyframes show-fallback { to { opacity: 1; } }
+
+  .hero__title .w { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .12em; margin-bottom: -.12em; }
+  .hero__title .w > span {
+    display: inline-block;
+    transform: translateY(115%) rotate(4deg);
+    transform-origin: 0 100%;
+    animation: word-rise .9s cubic-bezier(.2, .8, .2, 1) forwards;
+    animation-delay: calc(.15s + var(--i, 0) * .09s);
+  }
+  @keyframes word-rise { to { transform: translateY(0) rotate(0); } }
+
+  /* "Ela deve vender." respira em vermelho */
+  .hero__title .text-red { animation: red-glow 3.2s ease-in-out 1.6s infinite; }
+  @keyframes red-glow {
+    0%, 100% { text-shadow: 0 0 0 rgba(250, 0, 0, 0); }
+    50%      { text-shadow: 0 0 34px rgba(250, 0, 0, .55); }
+  }
+
+  /* brilho do fundo respira e acompanha o scroll */
+  .hero__glow { animation: glow-breathe 8s ease-in-out infinite; translate: 0 calc(var(--sy, 0) * .14px); }
+  @keyframes glow-breathe { 0%, 100% { scale: 1; opacity: .85; } 50% { scale: 1.12; opacity: 1; } }
+
+  /* laptop flutua e sobe de leve no scroll */
+  .hero__visual { translate: 0 calc(var(--sy, 0) * -.05px); }
+  .laptop { animation: laptop-float 7s ease-in-out infinite; }
+  @keyframes laptop-float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(.4deg); } }
+
+  /* pontinhos "ao vivo" pulsando */
+  .eyebrow__dot, .float-chip__dot { animation: dot-ping 2.2s ease-out infinite; }
+  @keyframes dot-ping {
+    0%   { box-shadow: 0 0 0 0 rgba(250, 0, 0, .55); }
+    70%  { box-shadow: 0 0 0 9px rgba(250, 0, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(250, 0, 0, 0); }
+  }
+
+  /* brilho que atravessa os botões principais de tempos em tempos */
+  .hero__cta .btn--primary, .cta .btn--primary, .ecosystem .btn--primary, .pack--featured .btn--primary { position: relative; overflow: hidden; }
+  .hero__cta .btn--primary::after, .cta .btn--primary::after, .ecosystem .btn--primary::after, .pack--featured .btn--primary::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -60%;
+    width: 40%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .45), transparent);
+    transform: skewX(-20deg);
+    animation: btn-shine 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes btn-shine { 0%, 60% { left: -60%; } 100% { left: 140%; } }
+
+  /* anel pulsando no botão de WhatsApp */
+  .float-btn--whats::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(37, 211, 102, .65);
+    animation: ring-ping 2.8s ease-out infinite;
+    pointer-events: none;
+  }
+  @keyframes ring-ping { 0% { transform: scale(1); opacity: .9; } 80%, 100% { transform: scale(1.7); opacity: 0; } }
+
+  /* ---------- FRENTES: destaque automático ---------- */
+  .front.is-active { border-color: rgba(250, 0, 0, .5); transform: translateY(-6px); box-shadow: 0 26px 60px rgba(250, 0, 0, .14); }
+  .front.is-active::before { opacity: 1; }
+  .front.is-active .front__icon { background: var(--red); color: var(--white); transform: rotate(-6deg) scale(1.06); }
+  .front.is-active .front__link { gap: 13px; color: var(--red-glow); }
+  /* o número vazado enche de vermelho no card ativo */
+  .front__num { transition: -webkit-text-stroke-color .5s, color .5s; }
+  .front.is-active .front__num { -webkit-text-stroke-color: var(--red); }
+  /* checks aparecem em cascata quando o card entra */
+  .front.is-visible .front__list li { animation: item-in .6s var(--ease) backwards; }
+  .front.is-visible .front__list li:nth-child(1) { animation-delay: .35s; }
+  .front.is-visible .front__list li:nth-child(2) { animation-delay: .45s; }
+  .front.is-visible .front__list li:nth-child(3) { animation-delay: .55s; }
+  .front.is-visible .front__list li:nth-child(4) { animation-delay: .65s; }
+  .front.is-visible .front__list li:nth-child(5) { animation-delay: .75s; }
+  .front.is-visible .front__list li:nth-child(6) { animation-delay: .85s; }
+  @keyframes item-in { from { opacity: 0; transform: translateX(-14px); } }
+  /* ícones das frentes balançam de leve sozinhos */
+  .front__icon { animation: icon-bob 4.5s ease-in-out infinite; }
+  .front--growth .front__icon { animation-delay: -1.5s; }
+  .front--social .front__icon { animation-delay: -3s; }
+  @keyframes icon-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -4px; } }
+
+  /* ---------- ECOSSISTEMA: nós pulsam e luz percorre as linhas ---------- */
+  .ecosystem__node { animation: node-pulse 3.6s ease-in-out infinite; }
+  .ecosystem__node:nth-child(3) { animation-delay: 1.2s; }
+  .ecosystem__node:nth-child(5) { animation-delay: 2.4s; }
+  @keyframes node-pulse {
+    0%, 100% { box-shadow: 0 0 22px rgba(250, 0, 0, .15); border-color: rgba(250, 0, 0, .5); }
+    50%      { box-shadow: 0 0 40px rgba(250, 0, 0, .6);  border-color: var(--red); }
+  }
+  .ecosystem__line { position: relative; overflow: hidden; }
+  .ecosystem__line::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -50%;
+    width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, #ff5a5a, transparent);
+    animation: line-travel 2.4s linear infinite;
+  }
+  .ecosystem__line:nth-child(4)::after { animation-delay: 1.2s; }
+  @keyframes line-travel { to { left: 110%; } }
+
+  /* ---------- PACOTES ---------- */
+  .pack.is-active { border-color: rgba(250, 0, 0, .45); transform: translateY(-4px); }
+  /* borda do pacote em destaque com luz girando */
+  .pack--featured::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: conic-gradient(from var(--ang), transparent 0 62%, rgba(250, 0, 0, .15) 74%, #ff3b3b 90%, transparent 100%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    animation: border-spin 4.5s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes border-spin { to { --ang: 360deg; } }
+  .pack__badge { animation: badge-bob 3s ease-in-out infinite; }
+  @keyframes badge-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -3px; } }
+
+  /* ---------- PROCESSO: linha e etapas acompanham o scroll ---------- */
+  .process-rail__line::after {
+    animation: none;
+    width: calc(var(--p, 0) * 100%);
+    opacity: 1;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(250, 0, 0, .4), var(--red));
+    box-shadow: 0 0 14px rgba(250, 0, 0, .8);
+    transition: width .25s linear;
+  }
+  .process-step.is-done .process-step__dot {
+    background: var(--red);
+    border-color: var(--red);
+    box-shadow: 0 0 24px rgba(250, 0, 0, .5);
+  }
+  .process-step.is-done .process-step__dot span { color: var(--white); }
+  .process-step.is-done .process-step__dot::before { border-color: rgba(250, 0, 0, .4); animation: dot-halo 2.6s ease-out infinite; }
+  @keyframes dot-halo { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(1.7); opacity: 0; } }
+  .process-step.is-done .process-step__card { border-color: rgba(250, 0, 0, .3); }
+
+  /* ciclos: o passo ativo acende sozinho */
+  .cycle__list li { transition: transform .4s var(--ease); }
+  .cycle__list li b { transition: color .35s; }
+  .cycle__list li::before { transition: background .35s, box-shadow .35s; }
+  .cycle__list li.is-active { transform: translateX(6px); }
+  .cycle__list li.is-active b { color: var(--red-glow); }
+  .cycle__list li.is-active::before { background: var(--red); box-shadow: 0 0 14px rgba(250, 0, 0, .8); }
+
+  /* ---------- DIFERENCIAIS: linha ativa percorre a lista ---------- */
+  .diff-line.is-active::before { opacity: 1; }
+  .diff-line.is-active .diff-line__icon { background: var(--red); color: var(--white); transform: scale(1.1); box-shadow: 0 8px 24px rgba(250, 0, 0, .3); }
+  .diff-line.is-active .diff-line__content h3 { color: var(--red-glow); }
+  .diff-line.is-active .diff-line__metric strong { color: var(--red); }
+
+  /* ---------- PORTFÓLIO: imagens com zoom lento contínuo ---------- */
+  .portfolio-card { overflow: hidden; }
+  .portfolio-card__media { animation: kenburns 16s ease-in-out infinite alternate; }
+  .grid--portfolio .portfolio-card:nth-child(even) .portfolio-card__media { animation-delay: -8s; }
+  @keyframes kenburns { from { scale: 1; } to { scale: 1.09; } }
+
+  /* ---------- CTA final: brilho pulsa ---------- */
+  .cta__glow { animation: glow-breathe 7s ease-in-out infinite; }
+}
