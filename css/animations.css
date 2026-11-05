@@ -58,7 +58,7 @@
   @keyframes laptop-float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(.4deg); } }
 
   /* pontinhos "ao vivo" pulsando */
-  .eyebrow__dot, .float-chip__dot { animation: dot-ping 2.2s ease-out infinite; }
+  .eyebrow__dot { animation: dot-ping 2.2s ease-out infinite; }
   @keyframes dot-ping {
     0%   { box-shadow: 0 0 0 0 rgba(250, 0, 0, .55); }
     70%  { box-shadow: 0 0 0 9px rgba(250, 0, 0, 0); }
@@ -196,4 +196,149 @@
 
   /* ---------- CTA final: brilho pulsa ---------- */
   .cta__glow { animation: glow-breathe 7s ease-in-out infinite; }
+}
+
+/* =========================================================
+   HERO AO VIVO — código, tráfego pago e redes sociais
+   Estado base = tela completa e estática (movimento reduzido).
+   Os loops entram no bloco prefers-reduced-motion: no-preference.
+   ========================================================= */
+.live-orbit { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+
+.live {
+  position: absolute;
+  width: 188px;
+  padding: 12px 13px 13px;
+  background: rgba(12, 12, 12, .88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, .6);
+}
+.live--dev    { top: -10%; left: -9%; }
+.live--growth { top: 33%; right: -11%; width: 200px; }
+.live--social { bottom: -11%; left: 4%; width: 176px; }
+
+.live__head { display: flex; align-items: center; gap: 7px; margin-bottom: 10px; }
+.live__head > svg { width: 15px; height: 15px; color: var(--red); flex: none; }
+.live__head b { font-family: var(--font-display); font-size: .78rem; color: var(--white); line-height: 1; }
+.live__head i { margin-left: auto; font-style: normal; font-family: var(--font-mono); font-size: .54rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gray-500); display: inline-flex; align-items: center; gap: 5px; }
+.live--dev .live__head i { color: #5be37d; }
+.live--dev .live__head i::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #28c840; box-shadow: 0 0 8px #28c840; }
+
+/* --- Dev: terminal --- */
+.live__code { font-family: var(--font-mono); font-size: .66rem; line-height: 1.7; color: var(--gray-300); }
+.live__code .ln { display: block; white-space: nowrap; overflow: hidden; width: calc(var(--w) * 1ch); }
+.live__code em { font-style: normal; color: #ff6a6a; }
+.live__code .ln--ok { color: #5be37d; }
+.live__progress { height: 3px; margin-top: 10px; background: rgba(255, 255, 255, .08); border-radius: 3px; overflow: hidden; }
+.live__progress span { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--red), #ff6a6a); box-shadow: 0 0 10px rgba(250, 0, 0, .8); }
+
+/* --- Growth: gráfico --- */
+.spark { display: block; width: 100%; height: 52px; overflow: visible; }
+.spark__line { fill: none; stroke: var(--red); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; vector-effect: non-scaling-stroke; filter: drop-shadow(0 0 4px rgba(250, 0, 0, .8)); }
+.spark__dot { fill: #fff; stroke: var(--red); stroke-width: 2; transform-box: fill-box; transform-origin: center; vector-effect: non-scaling-stroke; }
+.live__metrics { display: flex; gap: 16px; margin-top: 8px; }
+.live__metrics span { display: grid; }
+.live__metrics small { font-family: var(--font-mono); font-size: .54rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gray-500); }
+.live__metrics b { font-family: var(--font-display); font-size: 1.05rem; color: var(--white); line-height: 1.2; font-variant-numeric: tabular-nums; }
+
+/* --- Social: post --- */
+.story { width: 22px; height: 22px; flex: none; border-radius: 50%; padding: 2px; background: conic-gradient(from var(--ang), #FA0000, #ff9a3c, #ff3b8a, #FA0000); display: inline-grid; place-items: center; }
+.story i { display: block; width: 100%; height: 100%; border-radius: 50%; background: #0c0c0c; border: 2px solid #0c0c0c; box-shadow: inset 0 0 0 20px rgba(250, 0, 0, .5); }
+.live__head .story + b { margin-left: 0; }
+.post { position: relative; height: 62px; border-radius: 10px; overflow: hidden; background: linear-gradient(135deg, #1d0a0a, #5a0b0b 60%, #a30d0d); }
+.post__shape { position: absolute; border-radius: 50%; background: rgba(255, 255, 255, .12); }
+.post__shape--a { width: 34px; height: 34px; left: 14px; top: 14px; }
+.post__shape--b { width: 54px; height: 54px; right: -12px; bottom: -22px; background: rgba(255, 255, 255, .08); }
+.post__heart { position: absolute; left: 50%; top: 50%; width: 30px; height: 30px; margin: -15px 0 0 -15px; color: #fff; opacity: 0; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .5)); }
+.live__actions { display: flex; align-items: center; gap: 7px; margin-top: 9px; }
+.live__actions .like { width: 15px; height: 15px; color: var(--red); flex: none; }
+.live__actions b { font-family: var(--font-display); font-size: .8rem; color: var(--white); font-variant-numeric: tabular-nums; }
+.live__actions small { font-size: .66rem; color: var(--gray-500); }
+.fh { position: absolute; right: 16px; bottom: 34px; font-size: .8rem; color: var(--red); opacity: 0; }
+
+/* --- responsivo: vira uma faixa de três telas sob o laptop --- */
+@media (max-width: 1180px) {
+  .live--dev { left: -4%; }
+  .live--growth { right: -5%; }
+}
+@media (max-width: 920px) {
+  .live-orbit { position: static; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; pointer-events: auto; }
+  .live, .live--growth, .live--social { position: static; width: auto; padding: 10px 10px 11px; border-radius: 13px; }
+  .live__head { margin-bottom: 8px; gap: 5px; }
+  .live__head b { font-size: .68rem; }
+  .live__head i { display: none; }
+  .live__code { font-size: .56rem; }
+  .live__metrics { gap: 10px; }
+  .live__metrics b { font-size: .88rem; }
+  .live__actions small { display: none; }
+  .post { height: 48px; }
+  .spark { height: 40px; }
+  .fh { display: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* entrada das telas depois do título, e flutuação contínua */
+  .live { animation: live-in .8s var(--ease) backwards, live-float 6.5s ease-in-out infinite; }
+  .live--dev    { animation-delay: 1.5s, -1s; }
+  .live--growth { animation-delay: 1.7s, -3s; }
+  .live--social { animation-delay: 1.9s, -5s; }
+  @keyframes live-in { from { opacity: 0; transform: translateY(26px) scale(.92); } }
+  @keyframes live-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -9px; } }
+
+  /* Dev: digita linha a linha, barra de build enche, tudo reinicia */
+  .live__code .ln { width: 0; animation: ln-type 9s steps(var(--w), end) infinite; animation-delay: calc(var(--k) * .0s); }
+  .live__code .ln:nth-child(1) { animation-name: type-1; }
+  .live__code .ln:nth-child(2) { animation-name: type-2; }
+  .live__code .ln:nth-child(3) { animation-name: type-3; }
+  @keyframes type-1 { 0% { width: 0; } 12%, 88% { width: calc(var(--w) * 1ch); } 96%, 100% { width: 0; } }
+  @keyframes type-2 { 0%, 14% { width: 0; } 28%, 88% { width: calc(var(--w) * 1ch); } 96%, 100% { width: 0; } }
+  @keyframes type-3 { 0%, 46% { width: 0; } 56%, 88% { width: calc(var(--w) * 1ch); } 96%, 100% { width: 0; } }
+  .live__progress span { width: 0; animation: build-bar 9s ease-in-out infinite; }
+  @keyframes build-bar { 0% { width: 0; } 44% { width: 100%; } 88% { width: 100%; opacity: 1; } 96%, 100% { width: 100%; opacity: 0; } }
+  .live--dev .live__head i::before { animation: dot-ping 2.2s ease-out infinite; }
+
+  /* Growth: linha do gráfico se desenha, área aparece, ponto pulsa */
+  .spark__line { stroke-dashoffset: 1; animation: spark-draw 7s ease-in-out infinite; }
+  @keyframes spark-draw { 0% { stroke-dashoffset: 1; } 45%, 88% { stroke-dashoffset: 0; } 96%, 100% { stroke-dashoffset: 1; } }
+  .spark__area { opacity: 0; animation: spark-area 7s ease-in-out infinite; }
+  @keyframes spark-area { 0%, 30% { opacity: 0; } 50%, 88% { opacity: 1; } 96%, 100% { opacity: 0; } }
+  .spark__dot { opacity: 0; animation: spark-dot 7s ease-in-out infinite; }
+  @keyframes spark-dot { 0%, 44% { opacity: 0; transform: scale(.4); } 52% { opacity: 1; transform: scale(1.5); } 60%, 88% { opacity: 1; transform: scale(1); } 96%, 100% { opacity: 0; transform: scale(.4); } }
+
+  /* Social: anel do story gira, coração estoura, corações sobem */
+  .story { animation: border-spin 3.5s linear infinite; }
+  .post__heart { animation: heart-pop 3.4s ease-out infinite; }
+  @keyframes heart-pop {
+    0%, 18% { opacity: 0; transform: scale(.2); }
+    28%     { opacity: 1; transform: scale(1.35); }
+    38%     { opacity: 1; transform: scale(.95); }
+    46%     { opacity: 1; transform: scale(1.05); }
+    70%     { opacity: 0; transform: scale(1.15) translateY(-6px); }
+    100%    { opacity: 0; transform: scale(.2); }
+  }
+  .live__actions .like { animation: like-beat 3.4s ease-out infinite; }
+  @keyframes like-beat { 0%, 26% { transform: scale(1); } 32% { transform: scale(1.5); } 42%, 100% { transform: scale(1); } }
+  .fh { animation: heart-rise 3.4s ease-out infinite; }
+  .fh2 { right: 30px; animation-delay: .35s; font-size: .65rem; }
+  .fh3 { right: 6px; animation-delay: .7s; font-size: .9rem; }
+  @keyframes heart-rise {
+    0%, 26% { opacity: 0; transform: translateY(0) scale(.6); }
+    34%     { opacity: .95; }
+    100%    { opacity: 0; transform: translateY(-62px) translateX(8px) scale(1.15) rotate(14deg); }
+  }
+
+}
+
+/* títulos das telas numa linha só */
+.live__head b { white-space: nowrap; }
+.live--social { width: 192px; }
+@media (max-width: 920px) {
+  .live--social { width: auto; }
+  .live__head b { font-size: .62rem; }
+  .live__head { gap: 4px; }
+  .live__head > svg, .story { width: 16px; height: 16px; }
 }

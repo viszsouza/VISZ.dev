@@ -190,9 +190,55 @@
               </div>
             </div>
             <div class="laptop__base"></div>
-            <div class="float-chip float-chip--dev"><span class="float-chip__dot"></span><b>VISZ Dev</b><small>site no ar</small></div>
-            <div class="float-chip float-chip--growth"><span class="float-chip__dot"></span><b>VISZ Growth</b><small>campanhas ativas</small></div>
-            <div class="float-chip float-chip--social"><span class="float-chip__dot"></span><b>VISZ Social</b><small>posts agendados</small></div>
+            <div class="live-orbit">
+              <div class="live live--dev">
+                <div class="live__head">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <b>VISZ Dev</b><i>no ar</i>
+                </div>
+                <div class="live__code">
+                  <span class="ln" style="--w:20;--k:1"><em>const</em> site = <em>build</em>()</span>
+                  <span class="ln" style="--w:18;--k:2"><em>await</em> deploy(site)</span>
+                  <span class="ln ln--ok" style="--w:15;--k:3">✓ online · 1.4s</span>
+                </div>
+                <div class="live__progress"><span></span></div>
+              </div>
+
+              <div class="live live--growth">
+                <div class="live__head">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M3 17 9 11l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <b>VISZ Growth</b><i>simulação</i>
+                </div>
+                <svg class="spark" viewBox="0 0 160 52" preserveAspectRatio="none">
+                  <defs><linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FA0000" stop-opacity=".38"/><stop offset="1" stop-color="#FA0000" stop-opacity="0"/></linearGradient></defs>
+                  <path class="spark__area" d="M0 44 L22 38 L44 41 L66 28 L88 31 L110 18 L132 21 L158 6 L158 52 L0 52Z" fill="url(#sparkFill)"/>
+                  <path class="spark__line" pathLength="1" d="M0 44 L22 38 L44 41 L66 28 L88 31 L110 18 L132 21 L158 6"/>
+                  <circle class="spark__dot" cx="158" cy="6" r="3.2"/>
+                </svg>
+                <div class="live__metrics">
+                  <span><small>cliques</small><b class="js-tick" data-start="1280" data-min="3" data-max="9" data-ms="900">1.280</b></span>
+                  <span><small>leads</small><b class="js-tick" data-start="64" data-min="1" data-max="2" data-ms="2200">64</b></span>
+                </div>
+              </div>
+
+              <div class="live live--social">
+                <div class="live__head">
+                  <span class="story"><i></i></span>
+                  <b>VISZ Social</b><i>simulação</i>
+                </div>
+                <div class="post">
+                  <span class="post__shape post__shape--a"></span>
+                  <span class="post__shape post__shape--b"></span>
+                  <svg class="post__heart" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/></svg>
+                </div>
+                <div class="live__actions">
+                  <svg class="like" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/></svg>
+                  <b class="js-tick" data-start="248" data-min="1" data-max="3" data-ms="1100">248</b><small>curtidas</small>
+                </div>
+                <span class="fh fh1">♥</span><span class="fh fh2">♥</span><span class="fh fh3">♥</span>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

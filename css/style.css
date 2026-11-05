@@ -2209,30 +2209,6 @@ h4 {
   transform: translateY(-2px);
 }
 
-/* chips flutuantes no hero */
-.float-chip {
-  position: absolute;
-  z-index: 3;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 8px;
-  align-items: center;
-  padding: 10px 14px;
-  background: rgba(14, 14, 14, .82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid var(--glass-border);
-  border-radius: 14px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, .5);
-  animation: chip-float 6s ease-in-out infinite;
-}
-.float-chip b { font-family: var(--font-display); font-size: .82rem; color: var(--white); line-height: 1.1; }
-.float-chip small { grid-column: 2; font-size: .68rem; color: var(--gray-500); line-height: 1.2; }
-.float-chip__dot { grid-row: 1 / span 2; width: 8px; height: 8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 4px rgba(250, 0, 0, .18); }
-.float-chip--dev { top: 2%; left: -6%; }
-.float-chip--growth { top: 42%; right: -8%; animation-delay: -2s; }
-.float-chip--social { bottom: 8%; left: -2%; animation-delay: -4s; }
-@keyframes chip-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
 
 /* ---- frentes ---- */
 .fronts {
@@ -2334,8 +2310,6 @@ h4 {
 
 /* ---- responsivo ---- */
 @media (max-width: 1180px) {
-  .float-chip--dev { left: -2%; }
-  .float-chip--growth { right: -2%; }
 }
 @media (max-width: 1080px) {
   .fronts { grid-template-columns: 1fr; }
@@ -2348,7 +2322,6 @@ h4 {
   .cycles { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
-  .float-chip { display: none; }
   .packs { grid-template-columns: 1fr; }
   .process-rail { grid-template-columns: repeat(2, 1fr); }
   .ecosystem { padding: 24px 22px; }
@@ -2360,4 +2333,3 @@ h4 {
 
 /* ajuste do título do hero (frase nova é mais longa) */
 .hero__title { font-size: clamp(2.2rem, 4.4vw, 3.9rem); }
-.float-chip--dev { top: -7%; left: -4%; }

@@ -164,4 +164,38 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
   onScroll();
+
+  /* ---------- 5. Hero ao vivo: contadores das telas ---------- */
+  const hero = $('.hero');
+  if (hero) {
+    // contadores que sobem (valores ilustrativos da simulação)
+    const ticks = $$('.js-tick', hero).map((el) => ({
+      el,
+      value: parseInt(el.dataset.start, 10),
+      min: parseInt(el.dataset.min, 10),
+      max: parseInt(el.dataset.max, 10),
+      ms: parseInt(el.dataset.ms, 10),
+      last: 0
+    }));
+    const fmt = (n) => n.toLocaleString('pt-BR');
+    let raf = null;
+    const loop = (t) => {
+      ticks.forEach((k) => {
+        if (t - k.last >= k.ms) {
+          k.last = t;
+          k.value += k.min + Math.floor(Math.random() * (k.max - k.min + 1));
+          k.el.textContent = fmt(k.value);
+        }
+      });
+      raf = requestAnimationFrame(loop);
+    };
+    if (ticks.length && 'IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && !raf) raf = requestAnimationFrame(loop);
+          else if (!e.isIntersecting && raf) { cancelAnimationFrame(raf); raf = null; }
+        });
+      }).observe(hero);
+    }
+  }
 })();
