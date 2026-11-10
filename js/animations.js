@@ -8,6 +8,23 @@
 (function () {
   'use strict';
 
+  /* ---------- Menu: destaca a seção atual (independe de movimento reduzido) ---------- */
+  (function () {
+    const links = Array.from(document.querySelectorAll('.nav__list a[href^="#"]'));
+    if (!links.length || !('IntersectionObserver' in window)) return;
+    const map = new Map();
+    links.forEach((l) => { const s = document.querySelector(l.getAttribute('href')); if (s) map.set(s, l); });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        links.forEach((l) => { l.classList.remove('is-current'); l.removeAttribute('aria-current'); });
+        const l = map.get(e.target);
+        if (l) { l.classList.add('is-current'); l.setAttribute('aria-current', 'true'); }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    map.forEach((_, s) => io.observe(s));
+  })();
+
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const $ = (s, r = document) => r.querySelector(s);

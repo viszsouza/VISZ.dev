@@ -1456,15 +1456,6 @@ h4 {
   min-height: 1.2em;
 }
 
-.form__wa-fallback {
-  display: block;
-  text-align: center;
-  margin-top: 10px;
-  font-size: .82rem;
-  color: var(--red-glow);
-  text-decoration: underline;
-}
-
 /* =========================================================
    FOOTER
    ========================================================= */

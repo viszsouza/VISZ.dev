@@ -342,3 +342,72 @@
   .live__head { gap: 4px; }
   .live__head > svg, .story { width: 16px; height: 16px; }
 }
+
+/* =========================================================
+   REVISÃO GERAL — acessibilidade, toque e correções visuais
+   ========================================================= */
+
+/* âncoras não ficam escondidas sob o cabeçalho fixo */
+html { scroll-padding-top: 84px; }
+
+/* menu: seção atual */
+.nav__list a.is-current { color: var(--white); }
+.nav__list a.is-current::after { width: 100%; }
+
+/* contraste: vermelho dos botões e selo com 4.5:1 contra texto branco */
+.btn--primary, .pack__badge { background: #E60000; }
+.btn--primary:hover { background: #ff1a1a; }
+
+/* contraste: textos auxiliares dos diferenciais */
+.diff-line__num, .diff-line__metric span { color: #8a8a8a; }
+
+/* depoimentos: a janela recorta o slide seguinte (antes ele aparecia pela borda) */
+.testimonials__viewport { overflow: hidden; width: 100%; }
+
+/* portfólio: imagens dentro de <picture> */
+.portfolio-card picture { display: contents; }
+
+/* portfólio: legenda sempre visível no toque e ao focar com teclado */
+@media (hover: none), (pointer: coarse), (max-width: 760px) {
+  .portfolio-card__overlay { opacity: 1; transform: none; background: linear-gradient(0deg, rgba(0, 0, 0, .95) 0%, rgba(0, 0, 0, .78) 48%, rgba(0, 0, 0, 0) 85%); }
+}
+.portfolio-card:focus-within .portfolio-card__overlay { opacity: 1; transform: none; }
+
+/* alvos de toque maiores no celular */
+@media (max-width: 760px) {
+  .footer__col a { display: inline-block; padding: 8px 0; }
+  .footer__col span { display: inline-block; padding: 4px 0; }
+  .social-link, .footer__social a { min-width: 44px; min-height: 44px; }
+}
+
+/* contraste: rodapé e link "pular para o conteúdo" */
+.footer__bottom p, .footer__bottom span { color: #8a8a8a; }
+.skip-link { background: #E60000; }
+
+
+/* =========================================================
+   FORMULÁRIO — confirmação visual campo a campo
+   ========================================================= */
+[hidden] { display: none !important; }
+
+.form__control { position: relative; display: flex; }
+.form__control input,
+.form__control textarea { width: 100%; padding-right: 44px; }
+.form__ok { position: absolute; right: 13px; top: 50%; width: 20px; height: 20px; margin-top: -10px; color: #5be37d; opacity: 0; transform: scale(.5); transition: opacity .25s, transform .3s cubic-bezier(.2, .9, .3, 1.4); pointer-events: none; }
+.form__control--area .form__ok { top: 14px; margin-top: 0; }
+.form__row.is-valid .form__ok { opacity: 1; transform: scale(1); }
+.form__row.is-valid input,
+.form__row.is-valid select,
+.form__row.is-valid textarea { border-color: rgba(91, 227, 125, .6); }
+.form__row.is-valid select { border-color: rgba(91, 227, 125, .6); }
+
+.form__row.has-error .form__error { display: flex; align-items: center; gap: 6px; }
+.form__row.has-error .form__error::before { content: '!'; flex: none; display: inline-grid; place-items: center; width: 15px; height: 15px; border-radius: 50%; background: #ff5f57; color: #fff; font-size: .62rem; font-weight: 700; }
+.form__row.has-error .form__control { animation: field-shake .35s ease-in-out; }
+@keyframes field-shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+@media (prefers-reduced-motion: reduce) { .form__row.has-error .form__control { animation: none; } }
+
+.form__hint { font-size: .74rem; color: #8a8a8a; }
+.form__count.is-ok { color: #5be37d; }
+.form__suggest { align-self: flex-start; padding: 6px 12px; font: inherit; font-size: .78rem; color: #ffd37a; background: rgba(255, 211, 122, .1); border: 1px solid rgba(255, 211, 122, .35); border-radius: 999px; cursor: pointer; transition: background .2s; }
+.form__suggest:hover { background: rgba(255, 211, 122, .2); }

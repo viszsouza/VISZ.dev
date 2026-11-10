@@ -9,21 +9,10 @@
      CONFIGURAÇÃO DE INTEGRAÇÕES — edite os valores abaixo
      ========================================================= */
   const CONFIG = {
-    // E-mail (via EmailJS — emailjs.com, plano grátis)
-    EMAILJS_PUBLIC_KEY: 'vHBeTk0_XIOY9Q5g6',
-    EMAILJS_SERVICE_ID: 'service_nij8nio',
-    EMAILJS_TEMPLATE_ID: 'template_l8ud0om',
-    DESTINATION_EMAIL: 'contatoviszdev@gmail.com',
-
-    // Notificação no WhatsApp: abre uma aba com a mensagem pronta,
-    // endereçada ao número abaixo — o lead só confirma o envio.
+    // O formulário monta a mensagem e abre o WhatsApp deste número (DDI + DDD + número).
     WHATSAPP_NUMBER: '5581985742601'
   };
- 
-  if (window.emailjs && CONFIG.EMAILJS_PUBLIC_KEY && !CONFIG.EMAILJS_PUBLIC_KEY.startsWith('COLE_')) {
-    emailjs.init({ publicKey: CONFIG.EMAILJS_PUBLIC_KEY });
-  }
- 
+
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  
   /* ---------------- Ano no rodapé ---------------- */
@@ -378,113 +367,186 @@
   const form = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
  
-  const validators = {
-    name: v => v.trim().length >= 2,
-    email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
-    phone: v => v.replace(/\D/g, '').length >= 10,
-    service: v => v.trim().length > 0,
-    message: v => v.trim().length >= 10
+  /* ---------------- Validação com confirmação campo a campo ---------------- */
+  const VALID_DDD = new Set([
+    11,12,13,14,15,16,17,18,19, 21,22,24,27,28, 31,32,33,34,35,37,38,
+    41,42,43,44,45,46,47,48,49, 51,53,54,55, 61,62,63,64,65,66,67,68,69,
+    71,73,74,75,77,79, 81,82,83,84,85,86,87,88,89, 91,92,93,94,95,96,97,98,99
+  ]);
+
+  const EMAIL_RE = /^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*\.[a-z]{2,}$/i;
+  const DOMAIN_FIXES = {
+    'gmial.com': 'gmail.com', 'gmai.com': 'gmail.com', 'gamil.com': 'gmail.com', 'gmail.con': 'gmail.com',
+    'gmail.com.br': 'gmail.com', 'gnail.com': 'gmail.com', 'hotmial.com': 'hotmail.com', 'hotmal.com': 'hotmail.com',
+    'hotmail.con': 'hotmail.com', 'outlok.com': 'outlook.com', 'outlook.con': 'outlook.com', 'yaho.com': 'yahoo.com',
+    'yahoo.con': 'yahoo.com', 'icloud.con': 'icloud.com', 'icoud.com': 'icloud.com'
   };
- 
-  function validateField(field) {
-    const row = field.closest('.form__row');
-    const isValid = validators[field.name] ? validators[field.name](field.value) : true;
-    row.classList.toggle('has-error', !isValid);
-    return isValid;
+
+  // máscara (00) 00000-0000
+  function maskPhone(value) {
+    const d = value.replace(/\D/g, '').slice(0, 11);
+    if (d.length <= 2) return d ? '(' + d : '';
+    if (d.length <= 6) return '(' + d.slice(0, 2) + ') ' + d.slice(2);
+    if (d.length <= 10) return '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6);
+    return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
   }
- 
+
+  // cada validador devolve '' (ok) ou a mensagem de erro específica
+  const validators = {
+    name: (v) => {
+      const t = v.trim();
+      if (!t) return 'Informe seu nome.';
+      if (t.replace(/[^a-zA-ZÀ-ÿ]/g, '').length < 2) return 'Digite seu nome com pelo menos 2 letras.';
+      return '';
+    },
+    email: (v) => {
+      const t = v.trim();
+      if (!t) return 'Informe seu e-mail.';
+      if (!t.includes('@')) return 'Falta o @ no e-mail. Ex.: voce@empresa.com';
+      if (/\.\./.test(t) || !EMAIL_RE.test(t)) return 'Esse e-mail não parece válido. Ex.: voce@empresa.com';
+      return '';
+    },
+    phone: (v) => {
+      const d = v.replace(/\D/g, '');
+      if (!d) return 'Informe seu WhatsApp com DDD.';
+      if (d.length < 10) return 'Faltam números. Digite o DDD + número, ex.: (81) 99999-9999';
+      if (!VALID_DDD.has(parseInt(d.slice(0, 2), 10))) return 'Esse DDD não existe. Confira os dois primeiros números.';
+      if (d.length === 11 && d[2] !== '9') return 'Celular com 9 dígitos começa com 9 depois do DDD.';
+      if (/^(\d)\1+$/.test(d.slice(2))) return 'Esse número não parece real. Confira e tente de novo.';
+      return '';
+    },
+    service: (v) => (v.trim() ? '' : 'Selecione uma opção.'),
+    message: (v) => {
+      const n = v.trim().length;
+      if (!n) return 'Conte um pouco sobre o seu negócio.';
+      if (n < 10) return 'Escreva um pouco mais (faltam ' + (10 - n) + ' caracteres).';
+      return '';
+    }
+  };
+
+  const touched = new Set();
+  const emailSuggest = document.getElementById('emailSuggest');
+  const messageCount = document.getElementById('message-count');
+
+  function setFieldState(field, show) {
+    const row = field.closest('.form__row');
+    const err = validators[field.name] ? validators[field.name](field.value) : '';
+    const msgEl = row.querySelector('.form__error');
+    row.classList.toggle('has-error', show && !!err);
+    row.classList.toggle('is-valid', show && !err);
+    field.setAttribute('aria-invalid', show && err ? 'true' : 'false');
+    if (msgEl && err) msgEl.textContent = err;
+    return !err;
+  }
+
+  function updateEmailSuggestion(field) {
+    if (!emailSuggest) return;
+    const v = field.value.trim();
+    const at = v.lastIndexOf('@');
+    const fix = at > 0 ? DOMAIN_FIXES[v.slice(at + 1).toLowerCase()] : null;
+    if (fix && touched.has('email')) {
+      const suggestion = v.slice(0, at + 1) + fix;
+      emailSuggest.textContent = 'Você quis dizer ' + suggestion + '?';
+      emailSuggest.dataset.value = suggestion;
+      emailSuggest.hidden = false;
+    } else {
+      emailSuggest.hidden = true;
+    }
+  }
+
+  function updateCounter(field) {
+    if (!messageCount) return;
+    const n = field.value.trim().length;
+    messageCount.textContent = n >= 10 ? n + ' caracteres ✓' : 'Mínimo de 10 caracteres (' + n + '/10)';
+    messageCount.classList.toggle('is-ok', n >= 10);
+  }
+
   if (form) {
-    [...form.elements].forEach(field => {
-      if (validators[field.name]) {
-        field.addEventListener('blur', () => validateField(field));
-      }
+    const phoneField = form.elements.phone;
+    phoneField?.addEventListener('input', () => { phoneField.value = maskPhone(phoneField.value); });
+
+    emailSuggest?.addEventListener('click', () => {
+      form.elements.email.value = emailSuggest.dataset.value;
+      emailSuggest.hidden = true;
+      touched.add('email');
+      setFieldState(form.elements.email, true);
     });
- 
+
+    [...form.elements].forEach((field) => {
+      if (!validators[field.name]) return;
+      const eventName = field.tagName === 'SELECT' ? 'change' : 'input';
+      field.addEventListener('blur', () => {
+        touched.add(field.name);
+        setFieldState(field, true);
+        if (field.name === 'email') updateEmailSuggestion(field);
+      });
+      // depois que a pessoa saiu do campo uma vez, confirma/avisa enquanto digita
+      field.addEventListener(eventName, () => {
+        if (field.name === 'message') updateCounter(field);
+        if (touched.has(field.name)) setFieldState(field, true);
+        if (field.name === 'email') updateEmailSuggestion(field);
+      });
+    });
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      let allValid = true;
-      [...form.elements].forEach(field => {
-        if (validators[field.name] && !validateField(field)) allValid = false;
+      let firstInvalid = null;
+      [...form.elements].forEach((field) => {
+        if (!validators[field.name]) return;
+        touched.add(field.name);
+        if (!setFieldState(field, true) && !firstInvalid) firstInvalid = field;
       });
- 
-      if (!allValid) {
-        formStatus.textContent = 'Verifique os campos destacados antes de enviar.';
+      updateEmailSuggestion(form.elements.email);
+
+      if (firstInvalid) {
+        formStatus.textContent = 'Revise os campos destacados antes de enviar.';
         formStatus.style.color = '#ff8f8a';
+        firstInvalid.focus();
         return;
       }
- 
-      const submitBtn = form.querySelector('button[type="submit"]');
-      submitBtn.disabled = true;
-      formStatus.textContent = 'Enviando...';
-      formStatus.style.color = '';
-      const waFallback = document.getElementById('waFallback');
-      if (waFallback) waFallback.hidden = true;
- 
+
       const data = {
         name: form.name.value.trim(),
-        email: form.email.value.trim(),
+        email: form.email.value.trim().toLowerCase(),
         phone: form.phone.value.trim(),
         service: form.service.value,
-        message: form.message.value.trim(),
-        to_email: CONFIG.DESTINATION_EMAIL
+        message: form.message.value.trim()
       };
- 
-      // Abre a notificação do WhatsApp já aqui, dentro do próprio clique
-      // do usuário — é o único jeito de o navegador não bloquear o popup.
+
+      // Abre o WhatsApp dentro do próprio clique de envio; se o navegador
+      // bloquear a nova aba, segue na mesma aba (sem pedir nada à pessoa).
       const waLink = buildWhatsAppLink(data);
       const waWindow = window.open(waLink, '_blank');
- 
-      sendEmail(data)
-        .then(() => {
-          formStatus.textContent = 'Recebemos sua solicitação. Retornamos em até 1 dia útil ✓';
-          formStatus.style.color = '#8fffb0';
-          form.reset();
-        })
-        .catch((err) => {
-          console.error('Falha ao enviar formulário:', err);
-          formStatus.textContent = 'Não conseguimos enviar o e-mail agora. Tente novamente ou fale pelo WhatsApp.';
-          formStatus.style.color = '#ff8f8a';
-        })
-        .finally(() => {
-          submitBtn.disabled = false;
-          // Se o navegador bloqueou o popup, deixamos um link manual visível.
-          if ((!waWindow || waWindow.closed) && waFallback) {
-            waFallback.href = waLink;
-            waFallback.hidden = false;
-          }
-        });
+      if (waWindow) {
+        waWindow.opener = null;
+      } else {
+        window.location.href = waLink;
+        return;
+      }
+
+      formStatus.textContent = 'Abrimos o WhatsApp com a sua mensagem pronta. Toque em enviar por lá para concluir ✓';
+      formStatus.style.color = '#8fffb0';
+      form.reset();
+      touched.clear();
+      form.querySelectorAll('.form__row').forEach((r) => r.classList.remove('has-error', 'is-valid'));
+      form.querySelectorAll('[aria-invalid]').forEach((f) => f.setAttribute('aria-invalid', 'false'));
+      if (emailSuggest) emailSuggest.hidden = true;
+      if (messageCount) { messageCount.textContent = 'Mínimo de 10 caracteres'; messageCount.classList.remove('is-ok'); }
     });
   }
- 
-  /* ---------------- Envio de e-mail (EmailJS) ---------------- */
-  function sendEmail(data) {
-    const configured = window.emailjs
-      && !CONFIG.EMAILJS_SERVICE_ID.startsWith('COLE_')
-      && !CONFIG.EMAILJS_TEMPLATE_ID.startsWith('COLE_')
-      && !CONFIG.EMAILJS_PUBLIC_KEY.startsWith('COLE_');
- 
-    if (!configured) {
-      // EmailJS ainda não configurado: evita travar a demo, mas avisa no console.
-      console.warn('EmailJS não configurado — veja CONFIG no topo de main.js. Simulando envio.');
-      return Promise.resolve();
-    }
- 
-    return emailjs.send(CONFIG.EMAILJS_SERVICE_ID, CONFIG.EMAILJS_TEMPLATE_ID, data);
-  }
- 
-  /* ---------------- Notificação no WhatsApp (link direto, sem bot) ---------------- */
+
+  /* ---------------- Mensagem do WhatsApp (link direto, sem bot) ---------------- */
   function buildWhatsAppLink(data) {
     const text =
-      `Novo contato no site da Agência VISZ\n` +
-      `Nome: ${data.name}\n` +
-      `E-mail: ${data.email}\n` +
-      `Telefone: ${data.phone}\n` +
-      `Serviço: ${data.service}\n` +
-      `Mensagem: ${data.message}`;
+      `*Novo contato pelo site — Agência VISZ*\n\n` +
+      `*Nome:* ${data.name}\n` +
+      `*E-mail:* ${data.email}\n` +
+      `*Telefone:* ${data.phone}\n` +
+      `*Interesse:* ${data.service}\n\n` +
+      `*Mensagem:*\n${data.message}`;
     return `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
   }
- 
- 
+
   /* ---------------- Pré-selecionar serviço ao clicar em um pacote ---------------- */
   document.querySelectorAll('.js-pick-service').forEach(btn => {
     btn.addEventListener('click', () => {
