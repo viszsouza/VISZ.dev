@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://visz.dev/sitemap.xml
+Sitemap: https://agenciavisz.com/sitemap.xml
