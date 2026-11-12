@@ -1,0 +1,64 @@
+/* =========================================================
+   PÁGINA DE TERMOS DE SERVIÇO
+   ========================================================= */
+.legal-hero { padding: 150px 0 40px; position: relative; }
+.legal-hero h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.08; margin: 10px 0 14px; color: var(--white); }
+.legal-hero__meta { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .06em; color: #8a8a8a; }
+
+.legal { padding: 20px 0 100px; }
+.legal__grid { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 56px; align-items: start; }
+
+/* índice lateral */
+.legal__aside { position: sticky; top: 96px; align-self: start; }
+.legal__toc { border: 1px solid var(--glass-border); border-radius: var(--radius-md); background: rgba(255, 255, 255, .03); padding: 4px 0; }
+.legal__toc summary { list-style: none; cursor: pointer; padding: 14px 18px; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--red); }
+.legal__toc summary::-webkit-details-marker { display: none; }
+.legal__toc ol { list-style: none; counter-reset: toc; margin: 0; padding: 0 8px 12px; max-height: calc(100vh - 220px); overflow: auto; }
+.legal__toc li { counter-increment: toc; }
+.legal__toc a { display: flex; gap: 10px; padding: 7px 10px; border-radius: 8px; font-size: .84rem; line-height: 1.35; color: #a8a8a8; text-decoration: none; transition: background .2s, color .2s; }
+.legal__toc a::before { content: counter(toc, decimal-leading-zero); flex: none; font-family: var(--font-mono); font-size: .68rem; color: #666; padding-top: 2px; }
+.legal__toc a:hover { color: var(--white); background: rgba(255, 255, 255, .05); }
+.legal__toc a.is-current { color: var(--white); background: rgba(250, 0, 0, .12); }
+.legal__toc a.is-current::before { color: var(--red); }
+
+/* conteúdo */
+.legal__content { counter-reset: sec; max-width: 760px; }
+.legal__summary { margin-bottom: 48px; padding: 26px 28px; border: 1px solid rgba(250, 0, 0, .35); border-radius: var(--radius-lg); background: linear-gradient(135deg, rgba(250, 0, 0, .1), rgba(255, 255, 255, .02) 60%); }
+.legal__summary h2 { font-family: var(--font-display); font-size: 1.15rem; margin: 0 0 12px; color: var(--white); }
+.legal__summary ul { margin: 0 0 12px; padding-left: 20px; }
+.legal__summary li { margin-bottom: 8px; color: #d6d6d6; line-height: 1.6; }
+.legal__summary p { margin: 0; font-size: .82rem; color: #8a8a8a; }
+
+.legal__sec { counter-increment: sec; padding: 8px 0 36px; border-top: 1px solid var(--line-soft, rgba(255, 255, 255, .08)); scroll-margin-top: 90px; }
+.legal__sec h2 { display: flex; gap: 14px; align-items: baseline; font-family: var(--font-display); font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.25; margin: 26px 0 16px; color: var(--white); }
+.legal__sec h2::before { content: counter(sec, decimal-leading-zero); font-family: var(--font-mono); font-size: .78rem; color: var(--red); letter-spacing: .08em; }
+.legal__sec h3 { font-family: var(--font-display); font-size: 1.02rem; margin: 26px 0 10px; color: var(--white); }
+.legal__sec p, .legal__sec li { color: #c9c9c9; line-height: 1.75; font-size: .98rem; }
+.legal__sec p { margin: 0 0 14px; }
+.legal__sec ul { margin: 0 0 14px; padding-left: 22px; }
+.legal__sec li { margin-bottom: 9px; }
+.legal__sec li::marker { color: var(--red); }
+.legal__sec strong { color: var(--white); font-weight: 600; }
+.legal__sec a { color: #ff7a7a; text-decoration: underline; text-underline-offset: 3px; }
+.legal__sec a:hover { color: var(--white); }
+
+@media (max-width: 900px) {
+  .legal-hero { padding-top: 120px; }
+  .legal__grid { grid-template-columns: 1fr; gap: 28px; }
+  .legal__aside { position: static; }
+  .legal__toc ol { max-height: 320px; }
+}
+@media (min-width: 901px) {
+  .legal__toc summary { pointer-events: none; }
+}
+
+/* o reset global remove os marcadores das listas; aqui eles são necessários */
+.legal__summary ul, .legal__sec ul { list-style: disc; }
+.legal__summary li::marker { color: var(--red); }
+
+/* o índice fica fixo ao rolar: html/body com overflow-x:hidden quebram o position:sticky */
+html, body { overflow-x: clip; }
+
+/* marcadores das listas (o reset global remove) */
+.legal__summary ul, .legal__sec ul { list-style: disc; }
+.legal__summary li::marker { color: var(--red); }

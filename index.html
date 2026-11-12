@@ -2,14 +2,6 @@
 <html lang="pt-BR">
 
 <head>
-
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TNMFT64F"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  </script>
-
   <script>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -602,7 +594,7 @@
         </div>
 
         <div class="grid grid--portfolio">
-          <a href="https://proventuspromo.com.br" class="portfolio-card reveal">
+          <a href="#contato" class="portfolio-card reveal">
             <picture><source type="image/webp" srcset="assets/portfolio/Proventus.webp"><img class="portfolio-card__media" src="assets/portfolio/Proventus.jpg"
               alt="Site institucional da Proventus Promoções, empresa de produção de eventos de Recife/PE"
               loading="lazy" width="960" height="768"></picture>
@@ -612,7 +604,7 @@
               <span class="portfolio-card__link">Ver projeto →</span>
             </div>
           </a>
-          <a href="https://www.lpta.com.br" class="portfolio-card reveal">
+          <a href="#contato" class="portfolio-card reveal">
             <picture><source type="image/webp" srcset="assets/portfolio/LPTA.webp"><img class="portfolio-card__media" src="assets/portfolio/LPTA.jpg"
               alt="Site institucional da LPTA Engenharia, empresa de locação de plataformas aéreas" loading="lazy"
               width="960" height="768"></picture>
@@ -622,7 +614,7 @@
               <span class="portfolio-card__link">Ver projeto →</span>
             </div>
           </a>
-          <a href="https://sergio-bosco.vercel.app" class="portfolio-card reveal">
+          <a href="#contato" class="portfolio-card reveal">
             <picture><source type="image/webp" srcset="assets/portfolio/sergio-bosco.webp"><img class="portfolio-card__media" src="assets/portfolio/sergio-bosco.jpg"
               alt="Site institucional de Sérgio Bosco, consultor imobiliário especializado em programas habitacionais"
               loading="lazy" width="960" height="768"></picture>
@@ -632,7 +624,7 @@
               <span class="portfolio-card__link">Ver projeto →</span>
             </div>
           </a>
-          <a href="https://proctologistauberlandia.com.br" class="portfolio-card reveal">
+          <a href="#contato" class="portfolio-card reveal">
             <picture><source type="image/webp" srcset="assets/portfolio/bernardo-rosa.webp"><img class="portfolio-card__media" src="assets/portfolio/bernardo-rosa.jpg"
               alt="Landing page médica do Dr. Bernardo Rosa, coloproctologista em Uberlândia/MG" loading="lazy"
               width="960" height="768"></picture>
@@ -642,7 +634,7 @@
               <span class="portfolio-card__link">Ver projeto →</span>
             </div>
           </a>
-          <a href="https://clinicapertencer.com" class="portfolio-card reveal">
+          <a href="#contato" class="portfolio-card reveal">
             <picture><source type="image/webp" srcset="assets/portfolio/pertencer.webp"><img class="portfolio-card__media" src="assets/portfolio/pertencer.jpg"
               alt="Site institucional da Clínica Pertencer, clínica de neurodesenvolvimento infantil em Guapimirim/RJ"
               loading="lazy" width="960" height="768"></picture>
@@ -1078,7 +1070,12 @@
             <span class="form__error" id="message-msg" data-error-for="message" role="alert">Conte um pouco sobre o seu negócio.</span>
             <span class="form__hint form__count" id="message-count">Mínimo de 10 caracteres</span>
           </div>
+          <div class="form__trap" aria-hidden="true">
+            <label for="website">Não preencha este campo</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
           <button type="submit" class="btn btn--primary btn--block btn--lg">Enviar pelo WhatsApp</button>
+          <p class="form__legal">Ao enviar, você concorda com os <a href="termos.html">Termos de Serviço</a> e com o uso dos seus dados para retornarmos o contato.</p>
           <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -1091,7 +1088,7 @@
     <div class="container footer__grid">
       <div class="footer__brand">
         <span class="logo__mark">VISZ<span class="logo__tag">agência</span></span>
-        <p>Desenvolvimento web estratégico para empresas que levam o digital a sério.</p>
+        <p>Presença digital que vende. Sites e sistemas, tráfego pago e social media na mesma parceria.</p>
         <div class="footer__social" aria-label="Redes sociais">
           <a href="https://instagram.com/visz.dev" target="_blank" rel="noopener" aria-label="Instagram da Agência VISZ">
             <svg viewBox="0 0 24 24" fill="none">
@@ -1145,6 +1142,7 @@
 
     <div class="container footer__bottom">
       <p>© <span id="year"></span> Agência VISZ. Todos os direitos reservados.</p>
+      <nav class="footer__legal" aria-label="Documentos legais"><a href="termos.html">Termos de Serviço</a></nav>
       <p>Feito em Recife, com código próprio. Atendimento remoto para todo o Brasil.</p>
     </div>
   </footer>

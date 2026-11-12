@@ -411,3 +411,16 @@ html { scroll-padding-top: 84px; }
 .form__count.is-ok { color: #5be37d; }
 .form__suggest { align-self: flex-start; padding: 6px 12px; font: inherit; font-size: .78rem; color: #ffd37a; background: rgba(255, 211, 122, .1); border: 1px solid rgba(255, 211, 122, .35); border-radius: 999px; cursor: pointer; transition: background .2s; }
 .form__suggest:hover { background: rgba(255, 211, 122, .2); }
+
+
+/* =========================================================
+   FORMULÁRIO (armadilha antispam, aviso legal) e rodapé legal
+   ========================================================= */
+.form__trap { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.form__legal { margin-top: 12px; font-size: .76rem; line-height: 1.5; color: #8a8a8a; text-align: center; }
+.form__legal a { color: #cfcfcf; text-decoration: underline; text-underline-offset: 3px; }
+.form__legal a:hover { color: var(--white); }
+
+.footer__bottom { flex-wrap: wrap; gap: 8px 24px; }
+.footer__legal a { color: #bdbdbd; font-size: .88rem; text-decoration: underline; text-decoration-color: rgba(250, 0, 0, .6); text-underline-offset: 4px; }
+.footer__legal a:hover, .footer__legal a[aria-current="page"] { color: var(--white); }

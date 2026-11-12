@@ -10,7 +10,10 @@
      ========================================================= */
   const CONFIG = {
     // O formulário monta a mensagem e abre o WhatsApp deste número (DDI + DDD + número).
-    WHATSAPP_NUMBER: '5581985742601'
+    WHATSAPP_NUMBER: '5581985742601',
+    // Endpoint PHP que grava o contato no MySQL (as credenciais ficam só no servidor, em /api/config.php).
+    API_URL: 'api/contato.php',
+    TERMOS_VERSAO: '2026-11'
   };
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -517,6 +520,7 @@
       // bloquear a nova aba, segue na mesma aba (sem pedir nada à pessoa).
       const waLink = buildWhatsAppLink(data);
       const waWindow = window.open(waLink, '_blank');
+      saveContact(data);
       if (waWindow) {
         waWindow.opener = null;
       } else {
@@ -533,6 +537,50 @@
       if (emailSuggest) emailSuggest.hidden = true;
       if (messageCount) { messageCount.textContent = 'Mínimo de 10 caracteres'; messageCount.classList.remove('is-ok'); }
     });
+  }
+
+  /* ---------------- Origem do contato (UTM e site de origem) ---------------- */
+  const pageLoadedAt = Date.now();
+
+  function getAttribution() {
+    const KEY = 'visz_origem';
+    let saved = {};
+    try { saved = JSON.parse(sessionStorage.getItem(KEY) || '{}'); } catch (_) { /* navegação privada */ }
+    const params = new URLSearchParams(window.location.search);
+    const utm = Object.assign({}, saved.utm);
+    ['source', 'medium', 'campaign', 'term', 'content'].forEach((k) => {
+      const v = params.get('utm_' + k);
+      if (v) utm[k] = v.slice(0, 100);
+    });
+    const external = document.referrer && !document.referrer.includes(window.location.host);
+    const referrer = saved.referrer !== undefined ? saved.referrer : (external ? document.referrer.slice(0, 255) : '');
+    const result = { utm, referrer };
+    try { sessionStorage.setItem(KEY, JSON.stringify(result)); } catch (_) { /* ignora */ }
+    return result;
+  }
+  const attribution = getAttribution();
+
+  /* ---------------- Salva o contato no banco (em paralelo ao WhatsApp) ---------------- */
+  function saveContact(data) {
+    const payload = Object.assign({}, data, {
+      pagina: window.location.href.split('#')[0].slice(0, 255),
+      referrer: attribution.referrer,
+      utm: attribution.utm,
+      idioma: navigator.language || '',
+      fuso: (Intl.DateTimeFormat().resolvedOptions().timeZone) || '',
+      tempo_ms: Date.now() - pageLoadedAt,
+      website: form && form.elements.website ? form.elements.website.value : '',
+      aceite_termos: true,
+      termos_versao: CONFIG.TERMOS_VERSAO
+    });
+    const send = () => fetch(CONFIG.API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      keepalive: true // termina mesmo se a página mudar para o WhatsApp
+    }).then((r) => { if (r.status >= 500) throw new Error('servidor'); return r; });
+    // uma nova tentativa se a rede ou o servidor falharem; o WhatsApp nunca depende disso
+    send().catch(() => setTimeout(() => send().catch(() => {}), 2500));
   }
 
   /* ---------------- Mensagem do WhatsApp (link direto, sem bot) ---------------- */

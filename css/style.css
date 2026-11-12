@@ -1467,7 +1467,7 @@ h4 {
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 1.4fr .8fr .8fr;
+  grid-template-columns: 1.4fr .8fr .8fr 1fr;
   gap: 40px;
   padding-bottom: 60px;
   border-bottom: 1px solid var(--line);

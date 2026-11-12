@@ -1,0 +1,35 @@
+-- Tabela de contatos do site da Agência VISZ.
+-- O endpoint contato.php cria esta tabela sozinho na primeira vez, mas você também pode rodar este
+-- arquivo no phpMyAdmin (banco u175022134_contatos) se preferir.
+CREATE TABLE IF NOT EXISTS contatos (
+  id               INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  criado_em        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  nome             VARCHAR(100) NOT NULL,
+  email            VARCHAR(120) NOT NULL,
+  telefone         VARCHAR(20)  NOT NULL COMMENT 'como a pessoa digitou: (81) 99999-9999',
+  telefone_digitos VARCHAR(13)  NOT NULL COMMENT '55 + DDD + número, pronto para o link do WhatsApp',
+  servico          VARCHAR(80)  NOT NULL,
+  mensagem         TEXT         NOT NULL,
+  pagina_origem    VARCHAR(255) NULL,
+  referrer         VARCHAR(255) NULL COMMENT 'site de onde a pessoa veio',
+  utm_source       VARCHAR(100) NULL,
+  utm_medium       VARCHAR(100) NULL,
+  utm_campaign     VARCHAR(100) NULL,
+  utm_term         VARCHAR(100) NULL,
+  utm_content      VARCHAR(100) NULL,
+  idioma           VARCHAR(20)  NULL,
+  fuso             VARCHAR(64)  NULL,
+  dispositivo      VARCHAR(10)  NULL COMMENT 'mobile ou desktop',
+  user_agent       VARCHAR(255) NULL,
+  ip               VARCHAR(45)  NULL,
+  aceite_termos    TINYINT(1)   NOT NULL DEFAULT 0,
+  termos_versao    VARCHAR(20)  NULL,
+  status           ENUM('novo','em_atendimento','proposta_enviada','fechado','perdido','spam') NOT NULL DEFAULT 'novo',
+  observacoes      TEXT NULL COMMENT 'anotações internas da equipe',
+  atualizado_em    DATETIME NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  KEY idx_criado (criado_em),
+  KEY idx_status (status),
+  KEY idx_email (email),
+  KEY idx_ip_criado (ip, criado_em)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

@@ -1,0 +1,40 @@
+CONTATOS DO SITE NO BANCO DE DADOS (MySQL) — Agência VISZ
+==========================================================
+
+Como funciona
+-------------
+1. A pessoa preenche o formulário e clica em "Enviar pelo WhatsApp".
+2. O navegador abre o WhatsApp com a mensagem pronta (como antes).
+3. Ao mesmo tempo, o site chama api/contato.php, que valida os dados e grava o contato no MySQL.
+   Se o banco estiver fora do ar, o WhatsApp continua funcionando normalmente.
+
+Instalação (Hostinger ou qualquer hospedagem com PHP 8+ e MySQL)
+----------------------------------------------------------------
+1. Envie TODA a pasta do site para o public_html, mantendo a pasta /api.
+2. Confira em hPanel > Avançado > Configuração do PHP que a versão é 8.0 ou superior.
+3. Abra o site e envie um contato de teste. A tabela "contatos" é criada sozinha na primeira vez.
+   (Se preferir, rode o arquivo api/schema.sql no phpMyAdmin, no banco u175022134_contatos.)
+4. Para ver os contatos: hPanel > Bancos de dados > phpMyAdmin > tabela "contatos".
+   A coluna "status" serve para acompanhar o lead: novo, em_atendimento, proposta_enviada, fechado, perdido, spam.
+   A coluna "observacoes" é para anotações internas.
+
+Segurança (importante)
+----------------------
+- A senha do banco fica SOMENTE em api/config.php. Nunca coloque em arquivos .js ou .html.
+- O ideal é mover o config.php para FORA da pasta pública: coloque-o uma pasta acima do public_html
+  com o nome "visz-config.php". O contato.php procura lá primeiro.
+- Como a senha foi enviada em uma conversa, troque-a depois no hPanel (Bancos de dados) e atualize o config.php.
+- O site não funciona para testar pelo "Live Server" do VS Code, porque ele não executa PHP.
+  O envio para o WhatsApp funciona, mas o salvamento no banco só roda em hospedagem com PHP.
+
+O que é guardado de cada contato
+--------------------------------
+nome, e-mail, telefone (formatado e só números com 55 na frente), serviço de interesse, mensagem,
+página de origem, site de onde veio, UTM (source, medium, campaign, term, content), idioma, fuso horário,
+dispositivo (mobile/desktop), navegador, IP, aceite dos Termos (e a versão), status e data/hora (Brasília).
+
+Proteções contra spam
+---------------------
+- campo escondido que robôs preenchem; envio rápido demais é ignorado;
+- máximo de 5 envios por IP por hora (ajuste em config.php: rate_limit_por_hora);
+- só aceita requisições vindas do próprio site; envios repetidos idênticos não duplicam.
