@@ -12,7 +12,7 @@ header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
 header('Cache-Control: no-store');
 
-function responder(int $codigo, array $corpo): never {
+function responder(int $codigo, array $corpo) {
     http_response_code($codigo);
     echo json_encode($corpo, JSON_UNESCAPED_UNICODE);
     exit;
@@ -29,7 +29,7 @@ $origem = $_SERVER['HTTP_ORIGIN'] ?? '';
 if ($origem !== '') {
     $hostOrigem = parse_url($origem, PHP_URL_HOST) ?: '';
     $hostSite   = preg_replace('/:\d+$/', '', $_SERVER['HTTP_HOST'] ?? '');
-    $norm = static fn(string $h): string => strtolower(preg_replace('/^www\./i', '', $h));
+    $norm = function (string $h): string { return strtolower(preg_replace('/^www\./i', '', $h)); };
     if ($norm($hostOrigem) !== $norm($hostSite)) {
         responder(403, ['ok' => false, 'erro' => 'origem']);
     }
@@ -58,7 +58,7 @@ function cortar(string $v, int $max): string {
 }
 
 /** limpa texto: tira caracteres de controle, aplica trim e limite de tamanho */
-function texto(mixed $v, int $max, bool $multilinha = false): string {
+function texto($v, int $max, bool $multilinha = false): string {
     $v = is_scalar($v) ? (string)$v : '';
     $v = preg_replace($multilinha ? '/[^\P{C}\n]+/u' : '/\p{C}+/u', '', $v) ?? '';
     $v = trim($v);
@@ -84,7 +84,7 @@ if (tamanho(preg_replace('/[^\p{L}]/u', '', $nome) ?? '') < 2) { $erros['name'] 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL))                     { $erros['email'] = 'email'; }
 
 $digitos = preg_replace('/\D/', '', $telefone) ?? '';
-if (strlen($digitos) >= 12 && str_starts_with($digitos, '55')) { $digitos = substr($digitos, 2); }
+if (strlen($digitos) >= 12 && substr($digitos, 0, 2) === '55') { $digitos = substr($digitos, 2); }
 $ddds = [11,12,13,14,15,16,17,18,19,21,22,24,27,28,31,32,33,34,35,37,38,41,42,43,44,45,46,47,48,49,
          51,53,54,55,61,62,63,64,65,66,67,68,69,71,73,74,75,77,79,81,82,83,84,85,86,87,88,89,
          91,92,93,94,95,96,97,98,99];

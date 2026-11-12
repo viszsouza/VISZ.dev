@@ -407,7 +407,6 @@ html { scroll-padding-top: 84px; }
 /* =========================================================
    FORMULÁRIO (armadilha antispam, aviso legal) e rodapé legal
    ========================================================= */
-.form__trap { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 .form__legal { margin-top: 12px; font-size: .76rem; line-height: 1.5; color: #8a8a8a; text-align: center; }
 .form__legal a { color: #cfcfcf; text-decoration: underline; text-underline-offset: 3px; }
 .form__legal a:hover { color: var(--white); }

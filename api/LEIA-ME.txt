@@ -18,6 +18,15 @@ Instalação (Hostinger ou qualquer hospedagem com PHP 8+ e MySQL)
    A coluna "status" serve para acompanhar o lead: novo, em_atendimento, proposta_enviada, fechado, perdido, spam.
    A coluna "observacoes" é para anotações internas.
 
+Se os contatos não estiverem sendo salvos
+-----------------------------------------
+1. Abra  https://SEU-SITE/api/teste.php  — ele mostra, em português, o que está certo (✔) e o que falta (✘):
+   versão do PHP, extensão do MySQL, arquivo de configuração, usuário/senha, tabela e permissão de gravar.
+2. Atualize a página com Ctrl+F5 (o navegador pode estar usando o JavaScript antigo).
+3. Abra o Console do navegador (F12) e envie o formulário: se o banco falhar, aparece um aviso "[VISZ] contato NÃO foi salvo…".
+4. O teste pelo "Live Server" do VS Code NÃO salva (ele não executa PHP). Teste direto na hospedagem.
+5. Quando terminar, APAGUE o arquivo api/teste.php.
+
 Segurança (importante)
 ----------------------
 - A senha do banco fica SOMENTE em api/config.php. Nunca coloque em arquivos .js ou .html.

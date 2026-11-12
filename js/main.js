@@ -569,7 +569,6 @@
       idioma: navigator.language || '',
       fuso: (Intl.DateTimeFormat().resolvedOptions().timeZone) || '',
       tempo_ms: Date.now() - pageLoadedAt,
-      website: form && form.elements.website ? form.elements.website.value : '',
       aceite_termos: true,
       termos_versao: CONFIG.TERMOS_VERSAO
     });
@@ -578,7 +577,16 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
       keepalive: true // termina mesmo se a página mudar para o WhatsApp
-    }).then((r) => { if (r.status >= 500) throw new Error('servidor'); return r; });
+    }).then((r) => {
+      return r.json().catch(() => ({})).then((body) => {
+        if (r.ok && body.ok) return body;
+        // aparece no Console do navegador (F12) para facilitar o diagnóstico
+        console.warn('[VISZ] contato NÃO foi salvo no banco. HTTP ' + r.status + (body.erro ? ' — ' + body.erro : '') +
+          '. Abra /api/teste.php no seu site para ver o que está faltando.');
+        if (r.status >= 500) throw new Error('servidor');
+        return body;
+      });
+    });
     // uma nova tentativa se a rede ou o servidor falharem; o WhatsApp nunca depende disso
     send().catch(() => setTimeout(() => send().catch(() => {}), 2500));
   }
