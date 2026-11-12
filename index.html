@@ -1011,29 +1011,19 @@
         <form class="form reveal" id="contactForm" novalidate>
           <div class="form__row" data-field="name">
             <label for="name">Nome</label>
-            <div class="form__control">
-              <input type="text" id="name" name="name" autocomplete="name" placeholder="Seu nome" maxlength="80" required aria-required="true" aria-describedby="name-msg">
-              <svg class="form__ok" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".16"/><path d="m7.5 12.5 3 3 6-6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Seu nome" maxlength="80" required aria-required="true" aria-describedby="name-msg">
             <span class="form__error" id="name-msg" data-error-for="name" role="alert">Informe seu nome.</span>
           </div>
           <div class="form__row" data-field="email">
             <label for="email">E-mail</label>
-            <div class="form__control">
-              <input type="email" id="email" name="email" autocomplete="email" placeholder="voce@empresa.com" inputmode="email" autocapitalize="none" spellcheck="false" required aria-required="true" aria-describedby="email-msg">
-              <svg class="form__ok" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".16"/><path d="m7.5 12.5 3 3 6-6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="voce@empresa.com" inputmode="email" autocapitalize="none" spellcheck="false" required aria-required="true" aria-describedby="email-msg">
             <span class="form__error" id="email-msg" data-error-for="email" role="alert">Informe um e-mail válido.</span>
             <button type="button" class="form__suggest" id="emailSuggest" hidden></button>
           </div>
           <div class="form__row" data-field="phone">
             <label for="phone">WhatsApp</label>
-            <div class="form__control">
-              <input type="tel" id="phone" name="phone" autocomplete="tel-national" inputmode="numeric" placeholder="(81) 99999-9999" maxlength="15" required aria-required="true" aria-describedby="phone-msg phone-hint">
-              <svg class="form__ok" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".16"/><path d="m7.5 12.5 3 3 6-6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
+            <input type="tel" id="phone" name="phone" autocomplete="tel-national" inputmode="numeric" placeholder="(81) 99999-9999" maxlength="15" required aria-required="true" aria-describedby="phone-msg">
             <span class="form__error" id="phone-msg" data-error-for="phone" role="alert">Informe um telefone válido.</span>
-            <span class="form__hint" id="phone-hint">Com DDD. É por este número que vamos te responder.</span>
           </div>
           <div class="form__row">
             <label for="service">O que você procura?</label>
@@ -1063,12 +1053,8 @@
           </div>
           <div class="form__row">
             <label for="message">Mensagem</label>
-            <div class="form__control form__control--area">
-              <textarea id="message" name="message" rows="4" maxlength="1000" placeholder="Conte o que você precisa e qual é o seu negócio" required aria-required="true" aria-describedby="message-msg message-count"></textarea>
-              <svg class="form__ok" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".16"/><path d="m7.5 12.5 3 3 6-6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
+            <textarea id="message" name="message" rows="4" maxlength="1000" placeholder="Conte o que você precisa e qual é o seu negócio" required aria-required="true" aria-describedby="message-msg"></textarea>
             <span class="form__error" id="message-msg" data-error-for="message" role="alert">Conte um pouco sobre o seu negócio.</span>
-            <span class="form__hint form__count" id="message-count">Mínimo de 10 caracteres</span>
           </div>
           <div class="form__trap" aria-hidden="true">
             <label for="website">Não preencha este campo</label>

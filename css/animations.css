@@ -386,32 +386,23 @@ html { scroll-padding-top: 84px; }
 
 
 /* =========================================================
-   FORMULÁRIO — confirmação visual campo a campo
+   FORMULÁRIO — ajustes mínimos (visual original preservado)
    ========================================================= */
 [hidden] { display: none !important; }
 
-.form__control { position: relative; display: flex; }
-.form__control input,
-.form__control textarea { width: 100%; padding-right: 44px; }
-.form__ok { position: absolute; right: 13px; top: 50%; width: 20px; height: 20px; margin-top: -10px; color: #5be37d; opacity: 0; transform: scale(.5); transition: opacity .25s, transform .3s cubic-bezier(.2, .9, .3, 1.4); pointer-events: none; }
-.form__control--area .form__ok { top: 14px; margin-top: 0; }
-.form__row.is-valid .form__ok { opacity: 1; transform: scale(1); }
-.form__row.is-valid input,
-.form__row.is-valid select,
-.form__row.is-valid textarea { border-color: rgba(91, 227, 125, .6); }
-.form__row.is-valid select { border-color: rgba(91, 227, 125, .6); }
+/* a grade nunca pode ficar mais larga que a tela */
+.contact__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.contact__grid > * { min-width: 0; }
+@media (max-width: 900px) { .contact__grid { grid-template-columns: minmax(0, 1fr); } }
 
-.form__row.has-error .form__error { display: flex; align-items: center; gap: 6px; }
-.form__row.has-error .form__error::before { content: '!'; flex: none; display: inline-grid; place-items: center; width: 15px; height: 15px; border-radius: 50%; background: #ff5f57; color: #fff; font-size: .62rem; font-weight: 700; }
-.form__row.has-error .form__control { animation: field-shake .35s ease-in-out; }
-@keyframes field-shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
-@media (prefers-reduced-motion: reduce) { .form__row.has-error .form__control { animation: none; } }
+/* campos do mesmo tamanho */
+.form__row input, .form__row select, .form__row textarea { width: 100%; min-width: 0; font: inherit; }
+.form__row input, .form__row select { height: 50px; }
+.form__row textarea { min-height: 120px; }
 
-.form__hint { font-size: .74rem; color: #8a8a8a; }
-.form__count.is-ok { color: #5be37d; }
-.form__suggest { align-self: flex-start; padding: 6px 12px; font: inherit; font-size: .78rem; color: #ffd37a; background: rgba(255, 211, 122, .1); border: 1px solid rgba(255, 211, 122, .35); border-radius: 999px; cursor: pointer; transition: background .2s; }
+/* sugestão de correção do e-mail (só aparece quando há erro de digitação) */
+.form__suggest { align-self: flex-start; padding: 6px 12px; font: inherit; font-size: .78rem; color: #ffd37a; background: rgba(255, 211, 122, .1); border: 1px solid rgba(255, 211, 122, .35); border-radius: 999px; cursor: pointer; }
 .form__suggest:hover { background: rgba(255, 211, 122, .2); }
-
 
 /* =========================================================
    FORMULÁRIO (armadilha antispam, aviso legal) e rodapé legal
@@ -424,3 +415,5 @@ html { scroll-padding-top: 84px; }
 .footer__bottom { flex-wrap: wrap; gap: 8px 24px; }
 .footer__legal a { color: #bdbdbd; font-size: .88rem; text-decoration: underline; text-decoration-color: rgba(250, 0, 0, .6); text-underline-offset: 4px; }
 .footer__legal a:hover, .footer__legal a[aria-current="page"] { color: var(--white); }
+
+.form__row select { padding: 0 14px; }
