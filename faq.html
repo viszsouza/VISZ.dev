@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="css/style.css?v=20261113">
   <link rel="stylesheet" href="css/animations.css?v=20261113">
   <link rel="stylesheet" href="css/pages.css?v=20261113">
+  <link rel="stylesheet" href="css/visuals.css?v=20261113">
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://agenciavisz.com/"}, {"@type": "ListItem", "position": 2, "name": "Perguntas frequentes", "item": "https://agenciavisz.com/faq.html"}]}
   </script>
@@ -90,10 +91,24 @@
       <canvas class="section-particles" aria-hidden="true"></canvas>
       <div class="container">
         <nav class="crumbs" aria-label="Você está em"><ol><li><a href="index.html">Início</a></li><li aria-current="page">Perguntas frequentes</li></ol></nav>
-        <p class="eyebrow"><span class="eyebrow__dot"></span> Perguntas frequentes</p>
-        <h1>Tudo o que você precisa saber antes de começar.</h1>
-        <p class="page-hero__lead">Respostas diretas sobre valores, prazos, tráfego pago, social media e desenvolvimento. Não achou o que procurava? Fale com a gente.</p>
-        <div class="page-hero__actions"><a href="contato.html" class="btn btn--primary btn--lg">Falar com a equipe</a></div>
+        <div class="page-hero__grid">
+        <div class="page-hero__text">
+          <p class="eyebrow"><span class="eyebrow__dot"></span> Perguntas frequentes</p>
+          <h1>Tudo o que você precisa saber antes de começar.</h1>
+          <p class="page-hero__lead">Respostas diretas sobre valores, prazos, tráfego pago, social media e desenvolvimento. Não achou o que procurava? Fale com a gente.</p>
+          <div class="page-hero__actions"><a href="contato.html" class="btn btn--primary btn--lg">Falar com a equipe</a></div>
+        </div>
+        <div class="hero-visual" data-live aria-hidden="true"><div class="v-chat">
+          <div class="v-chat__head"><span class="av">?</span><div><b>Perguntas frequentes</b><small>respostas em segundos</small></div></div>
+          <div class="v-chat__body">
+            <p class="m m--in m1">Quanto tempo leva para ficar pronto?</p>
+            <div class="slot slot--out"><p class="typing t1"><i></i><i></i><i></i></p><p class="m m--out m2">Depende do escopo. O prazo vem na proposta, sem surpresa.</p></div>
+            <p class="m m--in m3">E a verba dos anúncios?</p>
+            <div class="slot slot--out"><p class="typing t2"><i></i><i></i><i></i></p><p class="m m--out m4">Fica na sua conta e no seu cartão. Nunca passa pela agência.</p></div>
+          </div>
+          <div class="v-chat__input"><span>Digite sua pergunta</span><i></i></div>
+        </div></div>
+      </div>
       </div>
     </section>
 
@@ -282,6 +297,7 @@
     <section class="cta">
       <canvas class="section-particles" aria-hidden="true"></canvas>
       <div class="cta__glow" aria-hidden="true"></div>
+      <div class="cta__aurora" aria-hidden="true"><i></i><i></i></div>
       <div class="container cta__inner reveal">
         <h2>Ainda com dúvida?</h2>
         <p>Mande a sua pergunta e respondemos em até 1 dia útil.</p>
@@ -375,5 +391,6 @@
   <script src="js/main.js?v=20261113" defer></script>
   <script src="js/animations.js?v=20261113" defer></script>
   <script src="js/pages.js?v=20261113" defer></script>
+  <script src="js/visuals.js?v=20261113" defer></script>
 </body>
 </html>

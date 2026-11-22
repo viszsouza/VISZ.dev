@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="css/style.css?v=20261113">
   <link rel="stylesheet" href="css/animations.css?v=20261113">
   <link rel="stylesheet" href="css/pages.css?v=20261113">
+  <link rel="stylesheet" href="css/visuals.css?v=20261113">
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://agenciavisz.com/"}, {"@type": "ListItem", "position": 2, "name": "Serviços", "item": "https://agenciavisz.com/servicos.html"}, {"@type": "ListItem", "position": 3, "name": "VISZ Growth", "item": "https://agenciavisz.com/visz-growth.html"}]}
   </script>
@@ -90,10 +91,38 @@
       <canvas class="section-particles" aria-hidden="true"></canvas>
       <div class="container">
         <nav class="crumbs" aria-label="Você está em"><ol><li><a href="index.html">Início</a></li><li><a href="servicos.html">Serviços</a></li><li aria-current="page">VISZ Growth</li></ol></nav>
-        <p class="eyebrow"><span class="eyebrow__dot"></span> VISZ Growth · Tráfego pago</p>
-        <h1>Tráfego pago que leva as pessoas certas até a sua marca.</h1>
-        <p class="page-hero__lead">Campanhas no Meta Ads e no Google Ads, com tracking, criativos testados e relatório mensal claro. A verba de anúncio fica sempre na sua conta.</p>
-        <div class="page-hero__actions"><a href="contato.html?servico=Gest%C3%A3o%20de%20tr%C3%A1fego%20pago%20%28Growth%29" class="btn btn--primary btn--lg">Pedir proposta</a><a href="pacotes.html" class="btn btn--ghost btn--lg">Ver pacotes</a></div>
+        <div class="page-hero__grid">
+        <div class="page-hero__text">
+          <p class="eyebrow"><span class="eyebrow__dot"></span> VISZ Growth · Tráfego pago</p>
+          <h1>Tráfego pago que leva as pessoas certas até a sua marca.</h1>
+          <p class="page-hero__lead">Campanhas no Meta Ads e no Google Ads, com tracking, criativos testados e relatório mensal claro. A verba de anúncio fica sempre na sua conta.</p>
+          <div class="page-hero__actions"><a href="contato.html?servico=Gest%C3%A3o%20de%20tr%C3%A1fego%20pago%20%28Growth%29" class="btn btn--primary btn--lg">Pedir proposta</a><a href="pacotes.html" class="btn btn--ghost btn--lg">Ver pacotes</a></div>
+        </div>
+        <div class="hero-visual v-growth" data-live aria-hidden="true">
+        <div class="v-dash">
+          <div class="v-dash__head"><b>Meta Ads · Google Ads</b><i>simulação</i></div>
+          <div class="v-kpis">
+            <div><small>Alcance</small><b class="v-tick" data-start="12480" data-min="40" data-max="160" data-ms="700">12.480</b></div>
+            <div><small>Cliques</small><b class="v-tick" data-start="842" data-min="1" data-max="6" data-ms="900">842</b></div>
+            <div><small>Contatos</small><b class="v-tick" data-start="37" data-min="1" data-max="2" data-ms="2400">37</b></div>
+          </div>
+          <svg class="v-chart" viewBox="0 0 320 110" preserveAspectRatio="none">
+            <defs><linearGradient id="vgFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FA0000" stop-opacity=".4"/><stop offset="1" stop-color="#FA0000" stop-opacity="0"/></linearGradient></defs>
+            <path class="grid" d="M0 27H320M0 55H320M0 83H320"/>
+            <path class="area" d="M0 92 L40 80 L80 86 L120 60 L160 66 L200 40 L240 46 L280 22 L320 12 L320 110 L0 110Z" fill="url(#vgFill)"/>
+            <path class="line" pathLength="1" d="M0 92 L40 80 L80 86 L120 60 L160 66 L200 40 L240 46 L280 22 L320 12"/>
+          </svg>
+          <div class="v-funnel">
+            <div><span>Alcance</span><i style="--w:100%;--k:0"></i></div>
+            <div><span>Cliques</span><i style="--w:46%;--k:1"></i></div>
+            <div><span>Contatos</span><i style="--w:15%;--k:2"></i></div>
+          </div>
+        </div>
+        <div class="v-toast v-toast--1">Novo contato recebido</div>
+        <div class="v-toast v-toast--2">Anúncio aprovado</div>
+        <div class="v-toast v-toast--3">Relatório mensal pronto</div>
+      </div>
+      </div>
       </div>
     </section>
 
@@ -229,6 +258,7 @@
     <section class="cta">
       <canvas class="section-particles" aria-hidden="true"></canvas>
       <div class="cta__glow" aria-hidden="true"></div>
+      <div class="cta__aurora" aria-hidden="true"><i></i><i></i></div>
       <div class="container cta__inner reveal">
         <h2>Vamos começar a conversa?</h2>
         <p>Fale com a gente e receba um diagnóstico gratuito da sua presença digital: site, anúncios e redes sociais.</p>
@@ -322,5 +352,6 @@
   <script src="js/main.js?v=20261113" defer></script>
   <script src="js/animations.js?v=20261113" defer></script>
   <script src="js/pages.js?v=20261113" defer></script>
+  <script src="js/visuals.js?v=20261113" defer></script>
 </body>
 </html>

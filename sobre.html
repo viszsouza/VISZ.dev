@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="css/style.css?v=20261113">
   <link rel="stylesheet" href="css/animations.css?v=20261113">
   <link rel="stylesheet" href="css/pages.css?v=20261113">
+  <link rel="stylesheet" href="css/visuals.css?v=20261113">
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://agenciavisz.com/"}, {"@type": "ListItem", "position": 2, "name": "Sobre", "item": "https://agenciavisz.com/sobre.html"}]}
   </script>
@@ -87,9 +88,24 @@
       <canvas class="section-particles" aria-hidden="true"></canvas>
       <div class="container">
         <nav class="crumbs" aria-label="Você está em"><ol><li><a href="index.html">Início</a></li><li aria-current="page">Sobre</li></ol></nav>
-        <p class="eyebrow"><span class="eyebrow__dot"></span> Sobre a agência</p>
-        <h1>Uma agência para a presença digital inteira.</h1>
-        <p class="page-hero__lead">Começamos como VISZ.dev, uma agência de desenvolvimento web. Hoje somos a Agência VISZ: sites e sistemas, tráfego pago e social media sob a mesma marca.</p>
+        <div class="page-hero__grid">
+        <div class="page-hero__text">
+          <p class="eyebrow"><span class="eyebrow__dot"></span> Sobre a agência</p>
+          <h1>Uma agência para a presença digital inteira.</h1>
+          <p class="page-hero__lead">Começamos como VISZ.dev, uma agência de desenvolvimento web. Hoje somos a Agência VISZ: sites e sistemas, tráfego pago e social media sob a mesma marca.</p>
+        </div>
+        <div class="hero-visual v-layers" data-live aria-hidden="true">
+        <div class="v-layers__stage">
+          <div class="v-layer" style="--z:0px;--d:0s"></div>
+          <div class="v-layer" style="--z:78px;--d:-2s"></div>
+          <div class="v-layer v-layer--top" style="--z:156px;--d:-4s"></div>
+        </div>
+        <div class="v-layers__beam"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i><i style="--k:3"></i><i style="--k:4"></i></div>
+        <div class="v-layers__label" style="--y:18%"><b>03</b> Resultados</div>
+        <div class="v-layers__label" style="--y:43%"><b>02</b> Tecnologia</div>
+        <div class="v-layers__label" style="--y:68%"><b>01</b> Estratégia</div>
+      </div>
+      </div>
       </div>
     </section>
 
@@ -251,6 +267,7 @@
     <section class="cta">
       <canvas class="section-particles" aria-hidden="true"></canvas>
       <div class="cta__glow" aria-hidden="true"></div>
+      <div class="cta__aurora" aria-hidden="true"><i></i><i></i></div>
       <div class="container cta__inner reveal">
         <h2>Quer conversar sobre o seu negócio?</h2>
         <p>Fale com a gente e receba um diagnóstico gratuito da sua presença digital: site, anúncios e redes sociais.</p>
@@ -344,5 +361,6 @@
   <script src="js/main.js?v=20261113" defer></script>
   <script src="js/animations.js?v=20261113" defer></script>
   <script src="js/pages.js?v=20261113" defer></script>
+  <script src="js/visuals.js?v=20261113" defer></script>
 </body>
 </html>

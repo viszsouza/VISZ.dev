@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="css/style.css?v=20261113">
   <link rel="stylesheet" href="css/animations.css?v=20261113">
   <link rel="stylesheet" href="css/pages.css?v=20261113">
+  <link rel="stylesheet" href="css/visuals.css?v=20261113">
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://agenciavisz.com/"}, {"@type": "ListItem", "position": 2, "name": "Serviços", "item": "https://agenciavisz.com/servicos.html"}, {"@type": "ListItem", "position": 3, "name": "Como trabalhamos", "item": "https://agenciavisz.com/processo.html"}]}
   </script>
@@ -87,10 +88,21 @@
       <canvas class="section-particles" aria-hidden="true"></canvas>
       <div class="container">
         <nav class="crumbs" aria-label="Você está em"><ol><li><a href="index.html">Início</a></li><li><a href="servicos.html">Serviços</a></li><li aria-current="page">Como trabalhamos</li></ol></nav>
-        <p class="eyebrow"><span class="eyebrow__dot"></span> Como trabalhamos</p>
-        <h1>Um método claro, do diagnóstico ao relatório.</h1>
-        <p class="page-hero__lead">A mesma jornada para qualquer frente. Você sempre sabe em que etapa está e o que vem a seguir.</p>
-        <div class="page-hero__actions"><a href="contato.html" class="btn btn--primary btn--lg">Começar pelo diagnóstico</a></div>
+        <div class="page-hero__grid">
+        <div class="page-hero__text">
+          <p class="eyebrow"><span class="eyebrow__dot"></span> Como trabalhamos</p>
+          <h1>Um método claro, do diagnóstico ao relatório.</h1>
+          <p class="page-hero__lead">A mesma jornada para qualquer frente. Você sempre sabe em que etapa está e o que vem a seguir.</p>
+          <div class="page-hero__actions"><a href="contato.html" class="btn btn--primary btn--lg">Começar pelo diagnóstico</a></div>
+        </div>
+        <div class="hero-visual v-track" data-live aria-hidden="true">
+        <div class="v-track__card">
+          <div class="v-track__rail"><i class="v-track__run"></i></div>
+          <ol class="v-track__nodes"><li style="--k:0"><span>1</span><small>Diagnóstico</small></li><li style="--k:1"><span>2</span><small>Estratégia</small></li><li style="--k:2"><span>3</span><small>Produção</small></li><li style="--k:3"><span>4</span><small>Aprovação</small></li><li style="--k:4"><span>5</span><small>Publicação</small></li><li style="--k:5"><span>6</span><small>Relatório</small></li></ol>
+          <div class="v-track__now"><span style="--k:0"><b>Etapa 1</b> Briefing, acessos e objetivos</span><span style="--k:1"><b>Etapa 2</b> Funil, personas e metas</span><span style="--k:2"><b>Etapa 3</b> Site, criativos e conteúdo</span><span style="--k:3"><b>Etapa 4</b> Você revisa no prazo combinado</span><span style="--k:4"><b>Etapa 5</b> No ar e acompanhado de perto</span><span style="--k:5"><b>Etapa 6</b> Resultados e próximo ciclo</span></div>
+        </div>
+      </div>
+      </div>
       </div>
     </section>
 
@@ -181,6 +193,7 @@
     <section class="cta">
       <canvas class="section-particles" aria-hidden="true"></canvas>
       <div class="cta__glow" aria-hidden="true"></div>
+      <div class="cta__aurora" aria-hidden="true"><i></i><i></i></div>
       <div class="container cta__inner reveal">
         <h2>Pronto para começar?</h2>
         <p>Fale com a gente e receba um diagnóstico gratuito da sua presença digital: site, anúncios e redes sociais.</p>
@@ -274,5 +287,6 @@
   <script src="js/main.js?v=20261113" defer></script>
   <script src="js/animations.js?v=20261113" defer></script>
   <script src="js/pages.js?v=20261113" defer></script>
+  <script src="js/visuals.js?v=20261113" defer></script>
 </body>
 </html>
