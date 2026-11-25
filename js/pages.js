@@ -31,3 +31,26 @@
     }
   }
 })();
+
+/* =========================================================
+   Portfólio: filtro por segmento
+   ========================================================= */
+(function () {
+  'use strict';
+  const bar = document.querySelector('.filters');
+  const grid = document.getElementById('projetos-grid');
+  if (!bar || !grid) return;
+  const chips = Array.from(bar.querySelectorAll('.chip'));
+  const cards = Array.from(grid.querySelectorAll('.portfolio-card[data-seg]'));
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const seg = chip.dataset.seg;
+      chips.forEach((c) => { const on = c === chip; c.classList.toggle('is-active', on); c.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+      cards.forEach((card) => {
+        const show = seg === 'all' || card.dataset.seg === seg;
+        card.hidden = !show;
+        if (show) card.classList.add('is-visible'); // garante que apareça mesmo se ainda não rolou até ele
+      });
+    });
+  });
+})();

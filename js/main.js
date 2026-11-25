@@ -13,7 +13,7 @@
     WHATSAPP_NUMBER: '5581985742601',
     // Endpoint PHP que grava o contato no MySQL (as credenciais ficam só no servidor, em /api/config.php).
     API_URL: 'api/contato.php',
-    TERMOS_VERSAO: '2026-11'
+    TERMOS_VERSAO: '2026-11.1'
   };
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -17,5 +17,5 @@ return [
     'db_pass' => 'ContatosAgencia11',
 
     'rate_limit_por_hora' => 5,          // máximo de envios por IP por hora
-    'termos_versao'       => '2026-11',  // versão dos Termos exibida no momento do aceite
+    'termos_versao'       => '2026-11.1',  // versão dos Termos exibida no momento do aceite
 ];
